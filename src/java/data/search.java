@@ -17,11 +17,9 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author jvetterlain
  */
-@WebServlet(name = "servlet", urlPatterns = {"/servlet"})
-public class servlet extends HttpServlet {
-    
-    
-    
+@WebServlet(name = "search", urlPatterns = {"/search"})
+public class search extends HttpServlet {
+
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
      * methods.
@@ -34,13 +32,17 @@ public class servlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {            
-            String country = request.getParameter("test"); 
+        try (PrintWriter out = response.getWriter()) {
+            String weight = request.getParameter("weight"); 
+            String country = request.getParameter("country"); 
             if(country==null){
                 country = "Afganistan";
+                weight = "1";
             }
-            request.setAttribute("test", country);
-            request.getRequestDispatcher("index.jsp").forward(request, response);          
+            request.setAttribute("weight", weight);
+            request.setAttribute("country", country);
+            request.getRequestDispatcher("index.jsp").forward(request, response); 
+            response.sendRedirect("index.jsp");
         }
     }
 

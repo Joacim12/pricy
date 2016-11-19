@@ -1,21 +1,19 @@
 package model;
 
-
-
+import data.GlsPrices;
 import java.util.ArrayList;
 import java.util.HashMap;
-
 /**
  *
  * @author jvetterlain
  */
 public final class Control {
-    
+    GlsPrices g = new GlsPrices();
     public Control(){
         addEverything();
     }
 
-    public String[] carrierNames = {"Fedex Economy","Fedex Standard","Ups Saver","Ups Express", "Billigst"};
+    public String[] carrierNames = {"Fedex Economy","Fedex Priority","UPS Saver","Ups Express","Ups Standard","GLS", "Billigst"};
     public double[] weights = {0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14, 14.5, 15, 15.5, 16, 16.5, 17, 17.5, 18, 18.5, 19, 19.5, 20, 20.5, 21, 21.5, 22, 22.5, 23, 23.5, 24, 24.5, 25, 25.5, 26, 26.5, 27, 27.5, 28, 28.5, 29, 29.5, 30, 30.5, 31, 31.5, 32, 32.5, 33, 33.5, 34, 34.5, 35, 35.5, 36, 36.5, 37, 37.5, 38, 38.5, 39, 39.5, 40, 40.5, 41, 41.5, 42, 42.5, 43, 43.5, 44, 44.5, 45, 45.5, 46, 46.5, 47, 47.5, 48, 48.5, 49, 49.5, 50, 50.5, 51, 51.5, 52, 52.5, 53, 53.5, 54, 54.5, 55, 55.5, 56, 56.5, 57, 57.5, 58, 58.5, 59, 59.5, 60, 60.5, 61, 61.5, 62, 62.5, 63, 63.5, 64, 64.5, 65, 65.5, 66, 66.5, 67, 67.5, 68, 68.5, 69, 69.5, 70};
     public double[] noPrice = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     public double[] emptyPrice = {};
@@ -51,7 +49,15 @@ public final class Control {
     private final double[] upsExpressZ41Prices = {128.48,147.18,165.77,218.27,240.63,252.85,266.50,279.63,293.02,306.15,318.76,330.98,343.20,355.68,367.90,379.99,392.47,404.82,417.17,429.39,442.39,442.39,455.39,455.39,468.00,468.00,480.74,480.74,493.35,493.35,506.48,506.48,519.22,519.22,530.66,530.66,540.15,540.15,549.64,549.64,565.76,565.76,565.76,565.76,582.40,582.40,582.40,582.40,598.91,598.91,598.91,598.91,615.29,615.29,615.29,615.29,631.93,631.93,631.93,631.93,685.49,685.49,685.49,685.49,685.49,685.49,685.49,685.49,685.49,685.49,735.54,735.54,735.54,735.54,735.54,735.54,735.54,735.54,735.54,735.54,785.07,785.07,785.07,785.07,785.07,785.07,785.07,785.07,785.07,785.07,834.86,834.86,834.86,834.86,834.86,834.86,834.86,834.86,834.86,834.86,884.13,884.13,884.13,884.13,884.13,884.13,884.13,884.13,884.13,884.13,933.01,933.01,933.01,933.01,933.01,933.01,933.01,933.01,933.01,933.01,981.76,981.76,981.76,981.76,981.76,981.76,981.76,981.76,981.76,981.76,1030.25,1030.25,1030.25,1030.25,1030.25,1030.25,1030.25,1030.25,1030.25,1030.25};
     private final double[] upsExpressZ42Prices = {138.60,169.40,199.87,272.48,308.62,330.33,351.26,372.06,392.86,413.27,425.75,437.84,450.19,462.41,474.37,486.33,498.16,510.77,522.60,534.82,552.11,552.11,569.27,569.27,585.78,585.78,602.03,602.03,618.15,618.15,634.53,634.53,650.78,650.78,665.47,665.47,679.64,679.64,693.55,693.55,723.32,723.32,723.32,723.32,753.22,753.22,753.22,753.22,783.25,783.25,783.25,783.25,813.15,813.15,813.15,813.15,842.01,842.01,842.01,842.01,914.03,914.03,914.03,914.03,914.03,914.03,914.03,914.03,914.03,914.03,986.05,986.05,986.05,986.05,986.05,986.05,986.05,986.05,986.05,986.05,1057.94,1057.94,1057.94,1057.94,1057.94,1057.94,1057.94,1057.94,1057.94,1057.94,1130.48,1130.48,1130.48,1130.48,1130.48,1130.48,1130.48,1130.48,1130.48,1130.48,1201.72,1201.72,1201.72,1201.72,1201.72,1201.72,1201.72,1201.72,1201.72,1201.72,1272.31,1272.31,1272.31,1272.31,1272.31,1272.31,1272.31,1272.31,1272.31,1272.31,1342.12,1342.12,1342.12,1342.12,1342.12,1342.12,1342.12,1342.12,1342.12,1342.12,1412.58,1412.58,1412.58,1412.58,1412.58,1412.58,1412.58,1412.58,1412.58,1412.58};
     private final double[] upsExpressZ61Prices = {135.74,155.21,174.57,246.68,271.18,283.92,298.90,314.02,329.00,343.84,357.56,371.42,385.28,399.14,413.14,426.86,440.72,454.72,468.58,482.30,497.84,497.84,511.70,511.70,525.14,525.14,539.14,539.14,553.00,553.00,566.86,566.86,581.00,581.00,594.72,594.72,608.58,608.58,622.86,622.86,642.04,642.04,642.04,642.04,661.92,661.92,661.92,661.92,681.52,681.52,681.52,681.52,701.12,701.12,701.12,701.12,721.14,721.14,721.14,721.14,771.68,771.68,771.68,771.68,771.68,771.68,771.68,771.68,771.68,771.68,822.36,822.36,822.36,822.36,822.36,822.36,822.36,822.36,822.36,822.36,873.18,873.18,873.18,873.18,873.18,873.18,873.18,873.18,873.18,873.18,924.00,924.00,924.00,924.00,924.00,924.00,924.00,924.00,924.00,924.00,974.54,974.54,974.54,974.54,974.54,974.54,974.54,974.54,974.54,974.54,1025.22,1025.22,1025.22,1025.22,1025.22,1025.22,1025.22,1025.22,1025.22,1025.22,1076.04,1076.04,1076.04,1076.04,1076.04,1076.04,1076.04,1076.04,1076.04,1076.04,1136.80,1136.80,1136.80,1136.80,1136.80,1136.80,1136.80,1136.80,1136.80,1136.80};
-
+    // UPS STANDARD
+    private final double[] upsStandardZ1Prices = {73.60,73.60,75.36,75.36,77.60,77.60,79.36,79.36,81.12,81.12,83.36,83.36,84.64,84.64,86.56,86.56,88.96,88.96,90.40,90.40,92.16,92.16,93.76,93.76,95.20,95.20,97.12,97.12,98.72,98.72,100.48,100.48,101.92,101.92,103.36,103.36,105.60,105.60,107.04,107.04,108.64,108.64,110.40,110.40,111.68,111.68,113.60,113.60,115.20,115.20,116.96,116.96,118.56,118.56,120.00,120.00,121.76,121.76,123.52,123.52,125.28,125.28,126.88,126.88,128.32,128.32,129.92,129.92,131.68,131.68,138.88,138.88,138.88,138.88,138.88,138.88,138.88,138.88,138.88,138.88,145.60,145.60,145.60,145.60,145.60,145.60,145.60,145.60,145.60,145.60,152.80,152.80,152.80,152.80,152.80,152.80,152.80,152.80,152.80,152.80,159.52,159.52,159.52,159.52,159.52,159.52,159.52,159.52,159.52,159.52,166.56,166.56,166.56,166.56,166.56,166.56,166.56,166.56,166.56,166.56,173.76,173.76,173.76,173.76,173.76,173.76,173.76,173.76,173.76,173.76,180.64,180.64,180.64,180.64,180.64,180.64,180.64,180.64,180.64,180.64};
+    private final double[] upsStandardZ2Prices = {92.32,92.32,97.60,97.60,102.72,102.72,108.32,108.32,113.60,113.60,117.28,117.28,120.16,120.16,123.52,123.52,127.04,127.04,130.24,130.24,132.48,132.48,134.88,134.88,136.96,136.96,139.20,139.20,141.60,141.60,144.00,144.00,146.08,146.08,148.32,148.32,150.56,150.56,152.96,152.96,155.04,155.04,156.96,156.96,158.88,158.88,161.28,161.28,163.36,163.36,165.28,165.28,167.36,167.36,169.28,169.28,171.68,171.68,173.60,173.60,175.36,175.36,177.60,177.60,179.84,179.84,181.92,181.92,183.84,183.84,191.04,191.04,191.04,191.04,191.04,191.04,191.04,191.04,191.04,191.04,198.88,198.88,198.88,198.88,198.88,198.88,198.88,198.88,198.88,198.88,206.08,206.08,206.08,206.08,206.08,206.08,206.08,206.08,206.08,206.08,213.60,213.60,213.60,213.60,213.60,213.60,213.60,213.60,213.60,213.60,220.80,220.80,220.80,220.80,220.80,220.80,220.80,220.80,220.80,220.80,228.48,228.48,228.48,228.48,228.48,228.48,228.48,228.48,228.48,228.48,235.68,235.68,235.68,235.68,235.68,235.68,235.68,235.68,235.68,235.68};
+    private final double[] upsStandardZ3Prices = {110.88,110.88,116.80,116.80,123.20,123.20,129.28,129.28,135.20,135.20,138.24,138.24,141.28,141.28,144.00,144.00,147.20,147.20,150.24,150.24,152.64,152.64,156.00,156.00,158.24,158.24,161.28,161.28,163.68,163.68,166.88,166.88,169.12,169.12,172.16,172.16,174.72,174.72,177.60,177.60,179.84,179.84,182.24,182.24,184.64,184.64,187.04,187.04,189.28,189.28,191.20,191.20,193.92,193.92,196.00,196.00,198.56,198.56,200.64,200.64,203.36,203.36,205.60,205.60,207.84,207.84,210.08,210.08,212.16,212.16,220.48,220.48,220.48,220.48,220.48,220.48,220.48,220.48,220.48,220.48,228.64,228.64,228.64,228.64,228.64,228.64,228.64,228.64,228.64,228.64,236.96,236.96,236.96,236.96,236.96,236.96,236.96,236.96,236.96,236.96,245.44,245.44,245.44,245.44,245.44,245.44,245.44,245.44,245.44,245.44,253.28,253.28,253.28,253.28,253.28,253.28,253.28,253.28,253.28,253.28,261.76,261.76,261.76,261.76,261.76,261.76,261.76,261.76,261.76,261.76,269.92,269.92,269.92,269.92,269.92,269.92,269.92,269.92,269.92,269.92};
+    private final double[] upsStandardZ21Prices = {108.00,108.00,113.92,113.92,120.00,120.00,125.60,125.60,131.36,131.36,134.56,134.56,137.76,137.76,140.48,140.48,143.36,143.36,146.72,146.72,148.96,148.96,152.00,152.00,154.72,154.72,157.44,157.44,160.16,160.16,162.88,162.88,165.76,165.76,168.48,168.48,171.36,171.36,173.92,173.92,176.64,176.64,178.88,178.88,181.76,181.76,184.32,184.32,186.88,186.88,189.28,189.28,191.52,191.52,194.24,194.24,196.80,196.80,199.04,199.04,201.28,201.28,203.84,203.84,206.08,206.08,208.32,208.32,210.56,210.56,218.72,218.72,218.72,218.72,218.72,218.72,218.72,218.72,218.72,218.72,226.08,226.08,226.08,226.08,226.08,226.08,226.08,226.08,226.08,226.08,234.08,234.08,234.08,234.08,234.08,234.08,234.08,234.08,234.08,234.08,242.08,242.08,242.08,242.08,242.08,242.08,242.08,242.08,242.08,242.08,250.08,250.08,250.08,250.08,250.08,250.08,250.08,250.08,250.08,250.08,257.44,257.44,257.44,257.44,257.44,257.44,257.44,257.44,257.44,257.44,265.28,265.28,265.28,265.28,265.28,265.28,265.28,265.28,265.28,265.28};
+    private final double[] upsStandardZ31Prices = {124.96,124.96,132.64,132.64,140.16,140.16,147.68,147.68,155.36,155.36,158.56,158.56,162.08,162.08,165.60,165.60,168.80,168.80,172.32,172.32,175.36,175.36,178.56,178.56,181.92,181.92,184.96,184.96,188.16,188.16,191.04,191.04,194.56,194.56,197.60,197.60,200.64,200.64,204.00,204.00,206.24,206.24,208.48,208.48,211.04,211.04,213.44,213.44,215.52,215.52,217.92,217.92,220.16,220.16,222.56,222.56,224.80,224.80,227.20,227.20,229.44,229.44,232.00,232.00,234.08,234.08,236.64,236.64,238.72,238.72,248.00,248.00,248.00,248.00,248.00,248.00,248.00,248.00,248.00,248.00,257.76,257.76,257.76,257.76,257.76,257.76,257.76,257.76,257.76,257.76,267.36,267.36,267.36,267.36,267.36,267.36,267.36,267.36,267.36,267.36,276.96,276.96,276.96,276.96,276.96,276.96,276.96,276.96,276.96,276.96,286.40,286.40,286.40,286.40,286.40,286.40,286.40,286.40,286.40,286.40,296.00,296.00,296.00,296.00,296.00,296.00,296.00,296.00,296.00,296.00,305.60,305.60,305.60,305.60,305.60,305.60,305.60,305.60,305.60,305.60};
+    private final double[] upsStandardZ4Prices = {133.28,133.28,142.08,142.08,151.20,151.20,159.84,159.84,168.64,168.64,172.16,172.16,175.36,175.36,178.72,178.72,182.24,182.24,185.44,185.44,189.28,189.28,192.96,192.96,196.16,196.16,200.00,200.00,203.68,203.68,207.04,207.04,210.56,210.56,214.56,214.56,217.92,217.92,221.28,221.28,223.84,223.84,225.60,225.60,228.00,228.00,229.92,229.92,232.16,232.16,234.08,234.08,236.48,236.48,238.24,238.24,240.80,240.80,242.56,242.56,244.64,244.64,246.72,246.72,248.96,248.96,251.20,251.20,253.12,253.12,264.16,264.16,264.16,264.16,264.16,264.16,264.16,264.16,264.16,264.16,274.88,274.88,274.88,274.88,274.88,274.88,274.88,274.88,274.88,274.88,285.28,285.28,285.28,285.28,285.28,285.28,285.28,285.28,285.28,285.28,296.48,296.48,296.48,296.48,296.48,296.48,296.48,296.48,296.48,296.48,307.04,307.04,307.04,307.04,307.04,307.04,307.04,307.04,307.04,307.04,317.92,317.92,317.92,317.92,317.92,317.92,317.92,317.92,317.92,317.92,328.48,328.48,328.48,328.48,328.48,328.48,328.48,328.48,328.48,328.48};
+    private final double[] upsStandardZ5Prices = {125.97,125.97,130.90,130.90,135.83,135.83,140.93,140.93,145.86,145.86,150.11,150.11,154.19,154.19,158.44,158.44,162.35,162.35,166.09,166.09,170.68,170.68,175.10,175.10,179.35,179.35,183.43,183.43,187.85,187.85,192.27,192.27,196.52,196.52,200.60,200.60,205.02,205.02,209.44,209.44,211.99,211.99,214.71,214.71,217.26,217.26,220.32,220.32,222.87,222.87,225.59,225.59,228.31,228.31,231.37,231.37,233.58,233.58,236.64,236.64,238.85,238.85,242.08,242.08,244.29,244.29,247.35,247.35,250.24,250.24,258.40,258.40,258.40,258.40,258.40,258.40,258.40,258.40,258.40,258.40,266.22,266.22,266.22,266.22,266.22,266.22,266.22,266.22,266.22,266.22,274.55,274.55,274.55,274.55,274.55,274.55,274.55,274.55,274.55,274.55,282.71,282.71,282.71,282.71,282.71,282.71,282.71,282.71,282.71,282.71,291.04,291.04,291.04,291.04,291.04,291.04,291.04,291.04,291.04,291.04,298.86,298.86,298.86,298.86,298.86,298.86,298.86,298.86,298.86,298.86,307.19,307.19,307.19,307.19,307.19,307.19,307.19,307.19,307.19,307.19};
+    private final double[] upsStandardZ6Prices = {152.15,152.15,159.46,159.46,166.60,166.60,174.42,174.42,181.90,181.90,189.21,189.21,196.69,196.69,204.34,204.34,211.48,211.48,219.30,219.30,223.55,223.55,228.14,228.14,232.56,232.56,237.15,237.15,241.91,241.91,246.50,246.50,250.75,250.75,255.34,255.34,260.10,260.10,264.52,264.52,267.58,267.58,271.49,271.49,275.23,275.23,278.63,278.63,282.37,282.37,286.11,286.11,289.51,289.51,293.08,293.08,296.99,296.99,300.56,300.56,304.13,304.13,307.70,307.70,311.44,311.44,314.84,314.84,318.92,318.92,329.97,329.97,329.97,329.97,329.97,329.97,329.97,329.97,329.97,329.97,341.02,341.02,341.02,341.02,341.02,341.02,341.02,341.02,341.02,341.02,351.90,351.90,351.90,351.90,351.90,351.90,351.90,351.90,351.90,351.90,363.29,363.29,363.29,363.29,363.29,363.29,363.29,363.29,363.29,363.29,374.17,374.17,374.17,374.17,374.17,374.17,374.17,374.17,374.17,374.17,385.22,385.22,385.22,385.22,385.22,385.22,385.22,385.22,385.22,385.22,396.44,396.44,396.44,396.44,396.44,396.44,396.44,396.44,396.44,396.44};
 // FEDEX ECONOMY   
     public double[] fedexZoneAPrices = {93.98, 109.83, 126.09, 142.35, 158.61, 166.32, 174.04, 181.76, 189.47, 197.19, 205.46, 213.73, 222.00, 230.26, 238.53, 246.80, 255.07, 263.34, 271.60, 279.87, 282.49, 285.11, 287.73, 290.34, 292.96, 295.58, 298.20, 300.82, 303.44, 306.05, 308.67, 311.29, 313.91, 316.53, 319.14, 321.76, 324.38, 327.00, 329.62, 332.24, 334.85, 338.99, 343.12, 347.26, 351.39, 355.52, 359.66, 363.79, 367.93, 372.06, 376.19, 380.33, 384.46, 388.60, 392.73, 396.86, 401.00, 405.13, 409.27, 413.40, 417.53, 421.67, 425.80, 429.94, 434.07, 438.20, 442.34, 446.47, 450.61, 454.74, 458.87, 463.01, 467.14, 471.28, 475.41, 479.54, 483.68, 487.81, 491.95, 496.08, 500.21, 504.35, 508.48, 512.62, 516.75, 520.88, 525.02, 529.15, 533.29, 538.80, 544.31, 549.82, 555.33, 560.85, 566.36, 571.87, 577.38, 582.89, 588.41, 593.92, 599.43, 604.94, 610.45, 615.97, 621.48, 626.99, 632.50, 638.01, 643.53, 649.04, 654.55, 660.06, 665.57, 671.09, 676.60, 682.11, 687.62, 693.13, 698.65, 704.16, 709.67, 715.18, 720.69, 726.21, 731.72, 737.23, 742.74, 748.25, 753.77, 759.28, 764.79, 770.30, 775.81, 781.33, 786.84, 792.35, 797.86, 803.37, 808.89, 814.40};
     public double[] fedexZoneBPrices = {100.46, 123.88, 147.31, 170.73, 194.16, 209.59, 225.03, 240.46, 255.89, 271.33, 283.73, 296.13, 308.53, 320.94, 333.34, 345.74, 358.14, 370.54, 382.95, 395.35, 401.82, 408.3, 414.78, 421.25, 427.73, 434.21, 440.68, 447.16, 453.64, 460.11, 466.59, 473.07, 479.54, 486.02, 492.5, 498.97, 505.45, 511.93, 518.4, 524.88, 531.36, 537.83, 544.31, 550.79, 557.26, 563.74, 570.22, 576.69, 583.17, 589.65, 596.12, 602.6, 609.08, 615.55, 622.03, 628.51, 634.98, 641.46, 647.94, 654.41, 660.89, 667.37, 673.84, 680.32, 686.8, 693.27, 699.75, 706.22, 712.7, 719.18, 725.65, 732.13, 738.61, 745.08, 751.56, 758.04, 764.51, 770.99, 777.47, 783.94, 790.42, 796.9, 803.37, 809.85, 816.33, 822.8, 829.28, 835.76, 842.23, 848.99, 855.74, 862.49, 869.24, 875.99, 882.75, 889.5, 896.25, 903, 909.76, 916.51, 923.26, 930.01, 936.76, 943.52, 950.27, 957.02, 963.77, 970.53, 977.28, 984.03, 990.78, 997.53, 1004.29, 1011.04, 1017.79, 1024.54, 1031.3, 1038.05, 1044.8, 1051.55, 1058.3, 1065.06, 1071.81, 1078.56, 1085.31, 1092.06, 1098.82, 1105.57, 1112.32, 1119.07, 1125.83, 1132.58, 1139.33, 1146.08, 1152.83, 1159.59, 1166.34, 1173.09, 1179.84, 1186.6};
@@ -78,7 +84,7 @@ public final class Control {
     public double[] fedexPrioTPrices = {183.37,220.19,257.01,293.84,330.66,355.21,379.76,404.31,428.86,453.4,477.45,501.5,525.55,549.6,573.64,597.69,621.74,645.79,669.84,693.88,707.16,720.44,733.71,746.99,760.27,773.54,786.82,800.1,813.37,826.65,839.93,853.2,866.48,879.76,893.03,906.31,919.59,932.86,946.14,959.41,972.69,986.22,999.75,1013.27,1026.8,1040.33,1053.85,1067.38,1080.91,1094.43,1107.96,1121.49,1135.02,1148.54,1162.07,1175.6,1189.12,1202.65,1216.18,1229.7,1243.23,1256.76,1270.29,1283.81,1297.34,1310.87,1324.39,1337.92,1351.45,1364.97,1378.5,1392.03,1405.56,1419.08,1432.61,1446.14,1459.66,1473.19,1486.72,1500.24,1513.77,1527.3,1540.83,1554.35,1567.88,1581.41,1594.93,1608.46,1621.99,1635.76,1649.54,1663.32,1677.1,1690.87,1704.65,1718.43,1732.21,1745.98,1759.76,1773.54,1787.32,1801.09,1814.87,1828.65,1842.43,1856.2,1869.98,1883.76,1897.54,1911.31,1925.09,1938.87,1952.65,1966.42,1980.2,1993.98,2007.76,2021.53,2035.31,2049.09,2062.87,2076.64,2090.42,2104.2,2117.98,2131.75,2145.53,2159.31,2173.09,2186.86,2200.64,2214.42,2228.2,2241.97,2255.75,2269.53,2283.31,2297.08,2310.86,2324.64};
     public double[] fedexPrioUPrices = {182.36,212.67,242.98,273.3,303.61,325.4,347.19,368.99,390.78,412.57,430.36,448.14,465.93,483.72,501.5,519.29,537.07,554.86,572.64,590.43,596.94,603.45,609.97,616.48,622.99,629.51,636.02,642.53,649.05,655.56,662.07,668.58,675.1,681.61,688.12,694.64,701.15,707.66,714.18,720.69,727.2,733.71,740.23,746.74,753.25,759.77,766.28,772.79,779.31,785.82,792.33,798.84,805.36,811.87,818.38,824.9,831.41,837.92,844.44,850.95,857.46,863.97,870.49,877,883.51,890.03,896.54,903.05,909.57,916.08,922.59,929.1,935.62,942.13,948.64,955.16,961.67,968.18,974.7,981.21,987.72,994.23,1000.75,1007.26,1013.77,1020.29,1026.8,1033.31,1039.83,1047.84,1055.86,1063.87,1071.89,1079.91,1087.92,1095.94,1103.95,1111.97,1119.99,1.128,1136.02,1144.03,1152.05,1160.07,1168.08,1176.1,1184.11,1192.13,1200.15,1208.16,1216.18,1224.19,1232.21,1240.23,1248.24,1256.26,1264.27,1272.29,1280.31,1288.32,1296.34,1304.35,1312.37,1320.39,1328.4,1336.42,1344.43,1352.45,1360.47,1368.48,1376.5,1384.51,1392.53,1400.55,1408.56,1416.58,1424.59,1432.61,1440.63,1448.64};
     public double[] fedexPrioVPrices = {180.61,216.68,252.75,288.83,324.9,353.2,381.51,409.82,438.12,466.43,491.23,516.03,540.83,565.63,590.43,615.23,640.03,664.83,689.63,714.43,728.45,742.48,756.51,770.54,784.57,798.59,812.62,826.65,840.68,854.71,868.73,882.76,896.79,910.82,924.85,938.87,952.9,966.93,980.96,994.99,1009.01,1022.79,1036.57,1050.35,1064.12,1077.9,1091.68,1105.46,1119.23,1133.01,1146.79,1160.57,1174.34,1188.12,1201.9,1215.68,1229.45,1243.23,1257.01,1270.79,1284.56,1298.34,1312.12,1325.9,1339.67,1353.45,1367.23,1381.01,1394.78,1408.56,1422.34,1436.12,1449.89,1463.67,1477.45,1491.23,1.505,1518.78,1532.56,1546.34,1560.11,1573.89,1587.67,1601.45,1615.22,1.629,1642.78,1656.56,1670.33,1684.36,1698.39,1712.42,1726.45,1740.47,1754.5,1768.53,1782.56,1796.59,1810.61,1824.64,1838.67,1852.7,1866.73,1880.75,1894.78,1908.81,1922.84,1936.87,1950.89,1964.92,1978.95,1992.98,2007.01,2021.03,2035.06,2049.09,2063.12,2077.15,2091.17,2105.2,2119.23,2133.26,2147.29,2161.31,2175.34,2189.37,2203.4,2217.43,2231.45,2245.48,2259.51,2273.54,2287.57,2301.59,2315.62,2329.65,2343.68,2357.71,2371.73,2385.76};
-    
+   
     String temp = "Afghanistan,Albania,Algeria,AmericanSamoa,Andorra,Angola,Anguilla,"
             + "Antigua,Argentina,Armenia,Aruba,Australia,Austria,Azerbaijan,Azores,"
             + "Bahamas,Bahrain,Bangladesh,Barbados,Barbuda,Belarus,Belgium,Belize,"
@@ -87,7 +93,7 @@ public final class Control {
             + "CapeVerde,CaymanIslands,CentralAfricanRepublic,Ceuta,Chad,ChannelIslands,"
             + "Chile,China,Colombia,Comoros,Congo,CookIslands,CostaRica,Croatia,Curacao,Cyprus,"
             + "CzechRepublic,Denmark,Djibouti,Dominica,DominicanRepublic,EastTimor,Ecuador,Egypt,ElSalvador,"
-            + "England,EquatorialGuinea,Eritrea,Estonia,Ethiopia,FaroeIslands,Fiji,Finland,France,FrenchGuyana,"
+            + "EquatorialGuinea,Eritrea,Estonia,Ethiopia,FaroeIslands,Fiji,Finland,France,FrenchGuyana,"
             + "FrenchPolynesia,Gabon,Gambia,Gaza,Georgia,Germany,Ghana,Gibraltar,Greece,Greenland,Grenada,Guadeloupe,"
             + "Guam,Guatemala,Guinea,GuineaBissau,Guyana,Haiti,Honduras,HongKong,Hungary,Iceland,India,Indonesia,Iraq,"
             + "Ireland,Israel,Italy,IvoryCoast,Jamaica,Japan,Jordan,Kazakhstan,Kenya,Kiribati,Kosovo,Kosrae,Kuwait,Kyrgyzstan,"
@@ -171,8 +177,7 @@ public final class Control {
     public ArrayList<double[]> EastTimor = new ArrayList();
     public ArrayList<double[]> Ecuador = new ArrayList();
     public ArrayList<double[]> Egypt = new ArrayList();
-    public ArrayList<double[]> ElSalvador = new ArrayList();
-    public ArrayList<double[]> England = new ArrayList();
+    public ArrayList<double[]> ElSalvador = new ArrayList();  
     public ArrayList<double[]> EquatorialGuinea = new ArrayList();
     public ArrayList<double[]> Eritrea = new ArrayList();
     public ArrayList<double[]> Estonia = new ArrayList();
@@ -367,98 +372,98 @@ public final class Control {
     public void addEverything() {
         //Tilføj prislister til land
         Afghanistan.add(fedexZoneEPrices);
-        Afghanistan.add(emptyPrice);
+        Afghanistan.add(fedexPrioEPrices);
         Afghanistan.add(upsSaveZ9Prices);
         Afghanistan.add(emptyPrice3);
         Afghanistan.add(emptyPrice4);
         Afghanistan.add(emptyPrice5);
 
         Albania.add(fedexZoneXPrices);
-        Albania.add(emptyPrice);
+        Albania.add(fedexPrioVPrices);
         Albania.add(upsSaveZ7Prices);
         Albania.add(emptyPrice3);
         Albania.add(emptyPrice4);
         Albania.add(emptyPrice5);
 
         Algeria.add(fedexZoneCPrices);
-        Algeria.add(emptyPrice);
+        Algeria.add(fedexPrioCPrices);
         Algeria.add(upsSaveZ10Prices);
         Algeria.add(emptyPrice3);
         Algeria.add(emptyPrice4);
         Algeria.add(emptyPrice5);
 
         AmericanSamoa.add(fedexZoneEPrices);
-        AmericanSamoa.add(emptyPrice);
+        AmericanSamoa.add(fedexPrioEPrices);
         AmericanSamoa.add(upsSaveZ10Prices);
         AmericanSamoa.add(emptyPrice3);
         AmericanSamoa.add(emptyPrice4);
         AmericanSamoa.add(emptyPrice5);
 
         Andorra.add(fedexZoneWPrices);
-        Andorra.add(emptyPrice);
+        Andorra.add(fedexPrioSPrices);
         Andorra.add(upsSaveZ6Prices);
         Andorra.add(emptyPrice3);
-        Andorra.add(emptyPrice4);
-        Andorra.add(emptyPrice5);
+        Andorra.add(upsStandardZ6Prices);
+        Andorra.add(g.glsAndorra);
 
         Angola.add(fedexZoneEPrices);
-        Angola.add(emptyPrice);
+        Angola.add(fedexPrioEPrices);
         Angola.add(upsSaveZ10Prices);
         Angola.add(emptyPrice3);
         Angola.add(emptyPrice4);
         Angola.add(emptyPrice5);
 
         Anguilla.add(fedexZoneDPrices);
-        Anguilla.add(emptyPrice);
+        Anguilla.add(fedexPrioDPrices);
         Anguilla.add(upsSaveZ10Prices);
         Anguilla.add(emptyPrice3);
         Anguilla.add(emptyPrice4);
         Anguilla.add(emptyPrice5);
 
         Antigua.add(fedexZoneDPrices);
-        Antigua.add(emptyPrice);
+        Antigua.add(fedexPrioDPrices);
         Antigua.add(upsSaveZ10Prices);
         Antigua.add(emptyPrice3);
         Antigua.add(emptyPrice4);
         Antigua.add(emptyPrice5);
 
         Argentina.add(fedexZoneDPrices);
-        Argentina.add(emptyPrice);
+        Argentina.add(fedexPrioDPrices);
         Argentina.add(upsSaveZ9Prices);
         Argentina.add(upsExpressZ9Prices);
         Argentina.add(emptyPrice4);
         Argentina.add(emptyPrice5);
 
         Armenia.add(fedexZoneEPrices);
-        Armenia.add(emptyPrice);
+        Armenia.add(fedexPrioEPrices);
         Armenia.add(upsSaveZ10Prices);
         Armenia.add(emptyPrice3);
         Armenia.add(emptyPrice4);
         Armenia.add(emptyPrice5);
 
         Aruba.add(fedexZoneDPrices);
-        Aruba.add(emptyPrice);
+        Aruba.add(fedexPrioDPrices);
         Aruba.add(upsSaveZ10Prices);
         Aruba.add(emptyPrice3);
         Aruba.add(emptyPrice4);
         Aruba.add(emptyPrice5);
 
         Australia.add(fedexZoneBPrices);
-        Australia.add(emptyPrice);
+        Australia.add(fedexPrioBPrices);
         Australia.add(upsSaveZ9Prices);
         Australia.add(upsExpressZ9Prices);
         Australia.add(emptyPrice4);
         Australia.add(emptyPrice5);
 
         Austria.add(fedexZoneUPrices);
-        Austria.add(emptyPrice);
+        Austria.add(fedexPrioSPrices);
         Austria.add(upsSaveZ4Prices);
         Austria.add(upsExpressZ4Prices);
-        Austria.add(emptyPrice4);
+        Austria.add(upsStandardZ4Prices);
         Austria.add(emptyPrice5);
 
         Azerbaijan.add(fedexZoneEPrices);
-        Azerbaijan.add(emptyPrice);
+        Azerbaijan.add(fedexPrioEPrices);
         Azerbaijan.add(upsSaveZ10Prices);
         Azerbaijan.add(emptyPrice3);
         Azerbaijan.add(emptyPrice4);
@@ -472,28 +477,28 @@ public final class Control {
         Azores.add(emptyPrice5);
 
         Bahamas.add(fedexZoneDPrices);
-        Bahamas.add(emptyPrice);
+        Bahamas.add(fedexPrioDPrices);
         Bahamas.add(upsSaveZ10Prices);
         Bahamas.add(emptyPrice3);
         Bahamas.add(emptyPrice4);
         Bahamas.add(emptyPrice5);
 
         Bahrain.add(fedexZoneCPrices);
-        Bahrain.add(emptyPrice);
+        Bahrain.add(fedexPrioCPrices);
         Bahrain.add(upsSaveZ9Prices);
         Bahrain.add(upsExpressZ9Prices);
         Bahrain.add(emptyPrice4);
         Bahrain.add(emptyPrice5);
 
         Bangladesh.add(fedexZoneCPrices);
-        Bangladesh.add(emptyPrice);
+        Bangladesh.add(fedexPrioCPrices);
         Bangladesh.add(upsSaveZ9Prices);
         Bangladesh.add(emptyPrice3);
         Bangladesh.add(emptyPrice4);
         Bangladesh.add(emptyPrice5);
 
         Barbados.add(fedexZoneDPrices);
-        Barbados.add(emptyPrice);
+        Barbados.add(fedexPrioDPrices);
         Barbados.add(upsSaveZ10Prices);
         Barbados.add(emptyPrice3);
         Barbados.add(emptyPrice4);
@@ -507,112 +512,112 @@ public final class Control {
         Barbuda.add(emptyPrice5);
 
         Belarus.add(fedexZoneXPrices);
-        Belarus.add(emptyPrice);
+        Belarus.add(fedexPrioVPrices);
         Belarus.add(upsSaveZ7Prices);
         Belarus.add(emptyPrice3);
         Belarus.add(emptyPrice4);
         Belarus.add(emptyPrice5);
 
         Belgium.add(fedexZoneSPrices);
-        Belgium.add(emptyPrice);
+        Belgium.add(fedexPrioSPrices);
         Belgium.add(upsSaveZ2Prices);
         Belgium.add(upsExpressZ2Prices);
-        Belgium.add(emptyPrice4);
-        Belgium.add(emptyPrice5);
+        Belgium.add(upsStandardZ2Prices);
+        Belgium.add(g.glsBelgium);
 
         Belize.add(fedexZoneDPrices);
-        Belize.add(emptyPrice);
+        Belize.add(fedexPrioDPrices);
         Belize.add(upsSaveZ10Prices);
         Belize.add(emptyPrice3);
         Belize.add(emptyPrice4);
         Belize.add(emptyPrice5);
 
         Benin.add(fedexZoneEPrices);
-        Benin.add(emptyPrice);
+        Benin.add(fedexPrioEPrices);
         Benin.add(upsSaveZ10Prices);
         Benin.add(emptyPrice3);
         Benin.add(emptyPrice4);
         Benin.add(emptyPrice5);
 
         Bermuda.add(fedexZoneDPrices);
-        Bermuda.add(emptyPrice);
+        Bermuda.add(fedexPrioDPrices);
         Bermuda.add(upsSaveZ10Prices);
         Bermuda.add(emptyPrice3);
         Bermuda.add(emptyPrice4);
         Bermuda.add(emptyPrice5);
 
         Bhutan.add(fedexZoneCPrices);
-        Bhutan.add(emptyPrice);
+        Bhutan.add(fedexPrioCPrices);
         Bhutan.add(upsSaveZ9Prices);
         Bhutan.add(emptyPrice3);
         Bhutan.add(emptyPrice4);
         Bhutan.add(emptyPrice5);
 
         Bolivia.add(fedexZoneDPrices);
-        Bolivia.add(emptyPrice);
+        Bolivia.add(fedexPrioDPrices);
         Bolivia.add(upsSaveZ10Prices);
         Bolivia.add(emptyPrice3);
         Bolivia.add(emptyPrice4);
         Bolivia.add(emptyPrice5);
 
         Bonaire.add(emptyPrice);
-        Bonaire.add(emptyPrice);
+        Bonaire.add(fedexPrioDPrices);
         Bonaire.add(upsSaveZ10Prices);
         Bonaire.add(emptyPrice3);
         Bonaire.add(emptyPrice4);
         Bonaire.add(emptyPrice5);
 
         Bosnia.add(fedexZoneXPrices);
-        Bosnia.add(emptyPrice);
+        Bosnia.add(fedexPrioVPrices);
         Bosnia.add(upsSaveZ7Prices);
         Bosnia.add(upsExpressZ7Prices);
         Bosnia.add(emptyPrice4);
         Bosnia.add(emptyPrice5);
 
         Botswana.add(fedexZoneEPrices);
-        Botswana.add(emptyPrice);
+        Botswana.add(fedexPrioEPrices);
         Botswana.add(upsSaveZ10Prices);
         Botswana.add(emptyPrice3);
         Botswana.add(emptyPrice4);
         Botswana.add(emptyPrice5);
 
         Brazil.add(fedexZoneDPrices);
-        Brazil.add(emptyPrice);
+        Brazil.add(fedexPrioDPrices);
         Brazil.add(upsSaveZ9Prices);
         Brazil.add(upsExpressZ9Prices);
         Brazil.add(emptyPrice4);
         Brazil.add(emptyPrice5);
 
         BritishVirginIs.add(fedexZoneDPrices);
-        BritishVirginIs.add(emptyPrice);
+        BritishVirginIs.add(fedexPrioDPrices);
         BritishVirginIs.add(upsSaveZ10Prices);
         BritishVirginIs.add(emptyPrice3);
         BritishVirginIs.add(emptyPrice4);
         BritishVirginIs.add(emptyPrice5);
 
         Brunei.add(fedexZoneCPrices);
-        Brunei.add(emptyPrice);
+        Brunei.add(fedexPrioCPrices);
         Brunei.add(upsSaveZ10Prices);
         Brunei.add(emptyPrice3);
         Brunei.add(emptyPrice4);
         Brunei.add(emptyPrice5);
 
         Bulgaria.add(fedexZoneVPrices);
-        Bulgaria.add(emptyPrice);
+        Bulgaria.add(fedexPrioTPrices);
         Bulgaria.add(upsSaveZ42Prices);
         Bulgaria.add(upsExpressZ42Prices);
-        Bulgaria.add(emptyPrice4);
-        Bulgaria.add(emptyPrice5);
+        Bulgaria.add(upsStandardZ31Prices);
+        Bulgaria.add(g.glsBulgaria);
 
         BurkinaFaso.add(fedexZoneEPrices);
-        BurkinaFaso.add(emptyPrice);
+        BurkinaFaso.add(fedexPrioEPrices);
         BurkinaFaso.add(upsSaveZ10Prices);
         BurkinaFaso.add(emptyPrice3);
         BurkinaFaso.add(emptyPrice4);
         BurkinaFaso.add(emptyPrice5);
 
         Burundi.add(fedexZoneEPrices);
-        Burundi.add(emptyPrice);
+        Burundi.add(fedexPrioEPrices);
         Burundi.add(upsSaveZ10Prices);
         Burundi.add(emptyPrice3);
         Burundi.add(emptyPrice4);
@@ -620,14 +625,14 @@ public final class Control {
 
        
         Cambodia.add(fedexZoneBPrices);
-        Cambodia.add(emptyPrice);
+        Cambodia.add(fedexPrioBPrices);
         Cambodia.add(upsSaveZ10Prices);
         Cambodia.add(emptyPrice3);
         Cambodia.add(emptyPrice4);
         Cambodia.add(emptyPrice5);
 
         Cameroon.add(fedexZoneEPrices);
-        Cameroon.add(emptyPrice);
+        Cameroon.add(fedexPrioEPrices);
         Cameroon.add(upsSaveZ10Prices);
         Cameroon.add(emptyPrice3);
         Cameroon.add(emptyPrice4);
@@ -648,21 +653,21 @@ public final class Control {
         CanaryIslands.add(emptyPrice5);
 
         CapeVerde.add(fedexZoneEPrices);
-        CapeVerde.add(emptyPrice);
+        CapeVerde.add(fedexPrioEPrices);
         CapeVerde.add(upsSaveZ10Prices);
         CapeVerde.add(emptyPrice3);
         CapeVerde.add(emptyPrice4);
         CapeVerde.add(emptyPrice5);
 
         CaymanIslands.add(fedexZoneDPrices);
-        CaymanIslands.add(emptyPrice);
+        CaymanIslands.add(fedexPrioDPrices);
         CaymanIslands.add(upsSaveZ10Prices);
         CaymanIslands.add(emptyPrice3);
         CaymanIslands.add(emptyPrice4);
         CaymanIslands.add(emptyPrice5);
 
         CentralAfricanRepublic.add(fedexZoneEPrices);
-        CentralAfricanRepublic.add(emptyPrice);
+        CentralAfricanRepublic.add(fedexPrioEPrices);
         CentralAfricanRepublic.add(upsSaveZ10Prices);
         CentralAfricanRepublic.add(emptyPrice3);
         CentralAfricanRepublic.add(emptyPrice4);
@@ -676,7 +681,7 @@ public final class Control {
         Ceuta.add(emptyPrice5);
 
         Chad.add(fedexZoneEPrices);
-        Chad.add(emptyPrice);
+        Chad.add(fedexPrioEPrices);
         Chad.add(upsSaveZ10Prices);
         Chad.add(emptyPrice3);
         Chad.add(emptyPrice4);
@@ -686,25 +691,25 @@ public final class Control {
         ChannelIslands.add(emptyPrice);
         ChannelIslands.add(upsSaveZ6Prices);
         ChannelIslands.add(emptyPrice3);
-        ChannelIslands.add(emptyPrice4);
+        ChannelIslands.add(upsStandardZ6Prices);
         ChannelIslands.add(emptyPrice5);        
 
         Chile.add(fedexZoneDPrices);
-        Chile.add(emptyPrice);
+        Chile.add(fedexPrioDPrices);
         Chile.add(upsSaveZ10Prices);
         Chile.add(upsExpressZ10Prices);
         Chile.add(emptyPrice4);
         Chile.add(emptyPrice5);
 
         China.add(fedexZoneFPrices);
-        China.add(emptyPrice);
+        China.add(fedexPrioFPrices);
         China.add(upsSaveZ10Prices);
         China.add(upsExpressZ10Prices);
         China.add(emptyPrice4);
         China.add(emptyPrice5);
 
         Colombia.add(fedexZoneDPrices);
-        Colombia.add(emptyPrice);
+        Colombia.add(fedexPrioDPrices);
         Colombia.add(upsSaveZ10Prices);
         Colombia.add(emptyPrice3);
         Colombia.add(emptyPrice4);
@@ -718,140 +723,133 @@ public final class Control {
         Comoros.add(emptyPrice5);
 
         Congo.add(fedexZoneEPrices);
-        Congo.add(emptyPrice);
+        Congo.add(fedexPrioEPrices);
         Congo.add(upsSaveZ10Prices);
         Congo.add(emptyPrice3);
         Congo.add(emptyPrice4);
         Congo.add(emptyPrice5);
 
         CookIslands.add(fedexZoneEPrices);
-        CookIslands.add(emptyPrice);
+        CookIslands.add(fedexPrioEPrices);
         CookIslands.add(upsSaveZ10Prices);
         CookIslands.add(emptyPrice3);
         CookIslands.add(emptyPrice4);
         CookIslands.add(emptyPrice5);
 
         CostaRica.add(fedexZoneDPrices);
-        CostaRica.add(emptyPrice);
+        CostaRica.add(fedexPrioDPrices);
         CostaRica.add(upsSaveZ10Prices);
         CostaRica.add(upsExpressZ10Prices);
         CostaRica.add(emptyPrice4);
         CostaRica.add(emptyPrice5);
 
         Croatia.add(fedexZoneXPrices);
-        Croatia.add(emptyPrice);
+        Croatia.add(fedexPrioVPrices);
         Croatia.add(upsSaveZ41Prices);
         Croatia.add(upsExpressZ41Prices);
-        Croatia.add(emptyPrice4);
-        Croatia.add(emptyPrice5);
+        Croatia.add(upsStandardZ31Prices);
+        Croatia.add(g.glsCroatia);
 
         Curacao.add(emptyPrice);
-        Curacao.add(emptyPrice);
+        Curacao.add(fedexPrioDPrices);
         Curacao.add(upsSaveZ10Prices);
         Curacao.add(emptyPrice3);
         Curacao.add(emptyPrice4);
         Curacao.add(emptyPrice5);
 
         Cyprus.add(fedexZoneXPrices);
-        Cyprus.add(emptyPrice);
+        Cyprus.add(fedexPrioTPrices);
         Cyprus.add(upsSaveZ42Prices);
         Cyprus.add(emptyPrice3);
         Cyprus.add(emptyPrice4);
-        Cyprus.add(emptyPrice5);
-
+        Cyprus.add(g.glsBelgium);
+        
         CzechRepublic.add(fedexZoneUPrices);
-        CzechRepublic.add(emptyPrice);
+        CzechRepublic.add(fedexPrioTPrices);
         CzechRepublic.add(upsSaveZ41Prices);
         CzechRepublic.add(upsExpressZ41Prices);
-        CzechRepublic.add(emptyPrice4);
-        CzechRepublic.add(emptyPrice5);
+        CzechRepublic.add(upsStandardZ21Prices);
+        CzechRepublic.add(g.glsCzechRepublic);
 
         Denmark.add(emptyPrice);
-        Denmark.add(emptyPrice);
+        Denmark.add(emptyPrice2);
         Denmark.add(upsSaveZ1Prices);
         Denmark.add(upsExpressZ1Prices);
-        Denmark.add(emptyPrice4);
         Denmark.add(emptyPrice5);
+        Denmark.add(g.glsDK);
 
         Djibouti.add(fedexZoneEPrices);
-        Djibouti.add(emptyPrice);
+        Djibouti.add(fedexPrioEPrices);
         Djibouti.add(upsSaveZ10Prices);
         Djibouti.add(emptyPrice3);
         Djibouti.add(emptyPrice4);
         Djibouti.add(emptyPrice5);
 
         Dominica.add(fedexZoneDPrices);
-        Dominica.add(emptyPrice);
+        Dominica.add(fedexPrioDPrices);
         Dominica.add(upsSaveZ10Prices);
         Dominica.add(emptyPrice3);
         Dominica.add(emptyPrice4);
         Dominica.add(emptyPrice5);
 
         DominicanRepublic.add(fedexZoneDPrices);
-        DominicanRepublic.add(emptyPrice);
+        DominicanRepublic.add(fedexPrioDPrices);
         DominicanRepublic.add(emptyPrice2);
         DominicanRepublic.add(emptyPrice3);
         DominicanRepublic.add(emptyPrice4);
         DominicanRepublic.add(emptyPrice5);
 
         EastTimor.add(fedexZoneBPrices);
-        EastTimor.add(emptyPrice);
+        EastTimor.add(fedexPrioBPrices);
         EastTimor.add(upsSaveZ10Prices);
         EastTimor.add(emptyPrice3);
         EastTimor.add(emptyPrice4);
         EastTimor.add(emptyPrice5);
 
         Ecuador.add(fedexZoneDPrices);
-        Ecuador.add(emptyPrice);
+        Ecuador.add(fedexPrioDPrices);
         Ecuador.add(upsSaveZ10Prices);
         Ecuador.add(emptyPrice3);
         Ecuador.add(emptyPrice4);
         Ecuador.add(emptyPrice5);
 
         Egypt.add(fedexZoneCPrices);
-        Egypt.add(emptyPrice);
+        Egypt.add(fedexPrioCPrices);
         Egypt.add(upsSaveZ9Prices);
         Egypt.add(upsExpressZ9Prices);
         Egypt.add(emptyPrice4);
         Egypt.add(emptyPrice5);
 
         ElSalvador.add(fedexZoneDPrices);
-        ElSalvador.add(emptyPrice);
+        ElSalvador.add(fedexPrioDPrices);
         ElSalvador.add(upsSaveZ10Prices);
         ElSalvador.add(emptyPrice3);
         ElSalvador.add(emptyPrice4);
         ElSalvador.add(emptyPrice5);
 
-        England.add(fedexZoneEPrices);
-        England.add(emptyPrice);
-        England.add(emptyPrice2);
-        England.add(emptyPrice3);
-        England.add(emptyPrice4);
-        England.add(emptyPrice5);
-
         EquatorialGuinea.add(fedexZoneEPrices);
-        EquatorialGuinea.add(emptyPrice);
+        EquatorialGuinea.add(fedexPrioEPrices);
         EquatorialGuinea.add(upsSaveZ10Prices);
         EquatorialGuinea.add(emptyPrice3);
         EquatorialGuinea.add(emptyPrice4);
         EquatorialGuinea.add(emptyPrice5);
 
         Eritrea.add(fedexZoneEPrices);
-        Eritrea.add(emptyPrice);
+        Eritrea.add(fedexPrioEPrices);
         Eritrea.add(upsSaveZ10Prices);
         Eritrea.add(emptyPrice3);
         Eritrea.add(emptyPrice4);
         Eritrea.add(emptyPrice5);
 
         Estonia.add(fedexZoneUPrices);
-        Estonia.add(emptyPrice);
+        Estonia.add(fedexPrioTPrices);
         Estonia.add(upsSaveZ42Prices);
         Estonia.add(upsExpressZ42Prices);
-        Estonia.add(emptyPrice4);
-        Estonia.add(emptyPrice5);
+        Estonia.add(upsStandardZ31Prices);
+        Estonia.add(g.glsEstonia);
 
         Ethiopia.add(fedexZoneEPrices);
-        Ethiopia.add(emptyPrice);
+        Ethiopia.add(fedexPrioEPrices);
         Ethiopia.add(upsSaveZ10Prices);
         Ethiopia.add(emptyPrice3);
         Ethiopia.add(emptyPrice4);
@@ -862,52 +860,52 @@ public final class Control {
         FaroeIslands.add(upsSaveZ6Prices);
         FaroeIslands.add(emptyPrice3);
         FaroeIslands.add(emptyPrice4);
-        FaroeIslands.add(emptyPrice5);
+        FaroeIslands.add(g.glsFaroeIslands);
 
         Fiji.add(fedexZoneEPrices);
-        Fiji.add(emptyPrice);
+        Fiji.add(fedexPrioEPrices);
         Fiji.add(upsSaveZ10Prices);
         Fiji.add(emptyPrice3);
         Fiji.add(emptyPrice4);
         Fiji.add(emptyPrice5);
 
         Finland.add(fedexZoneTPrices);
-        Finland.add(emptyPrice);
+        Finland.add(fedexPrioRPrices);
         Finland.add(upsSaveZ3Prices);
         Finland.add(upsExpressZ3Prices);
-        Finland.add(emptyPrice4);
-        Finland.add(emptyPrice5);
+        Finland.add(upsStandardZ3Prices);
+        Finland.add(g.glsFinland);
 
         France.add(fedexZoneTPrices);
-        France.add(emptyPrice);
+        France.add(fedexPrioSPrices);
         France.add(upsSaveZ3Prices);
         France.add(upsExpressZ3Prices);
-        France.add(emptyPrice4);
-        France.add(emptyPrice5);
+        France.add(upsStandardZ2Prices);
+        France.add(g.glsFrance);
 
         FrenchGuyana.add(fedexZoneDPrices);
-        FrenchGuyana.add(emptyPrice);
+        FrenchGuyana.add(fedexPrioDPrices);
         FrenchGuyana.add(upsSaveZ10Prices);
         FrenchGuyana.add(emptyPrice3);
         FrenchGuyana.add(emptyPrice4);
         FrenchGuyana.add(emptyPrice5);
 
         FrenchPolynesia.add(fedexZoneEPrices);
-        FrenchPolynesia.add(emptyPrice);
+        FrenchPolynesia.add(fedexPrioEPrices);
         FrenchPolynesia.add(upsSaveZ10Prices);
         FrenchPolynesia.add(emptyPrice3);
         FrenchPolynesia.add(emptyPrice4);
         FrenchPolynesia.add(emptyPrice5);
 
         Gabon.add(fedexZoneEPrices);
-        Gabon.add(emptyPrice);
+        Gabon.add(fedexPrioEPrices);
         Gabon.add(upsSaveZ10Prices);
         Gabon.add(emptyPrice3);
         Gabon.add(emptyPrice4);
         Gabon.add(emptyPrice5);
 
         Gambia.add(fedexZoneEPrices);
-        Gambia.add(emptyPrice);
+        Gambia.add(fedexPrioEPrices);
         Gambia.add(upsSaveZ10Prices);
         Gambia.add(emptyPrice3);
         Gambia.add(emptyPrice4);
@@ -921,56 +919,56 @@ public final class Control {
         Gaza.add(emptyPrice5);
 
         Georgia.add(fedexZoneEPrices);
-        Georgia.add(emptyPrice);
+        Georgia.add(fedexPrioEPrices);
         Georgia.add(upsSaveZ10Prices);
         Georgia.add(emptyPrice3);
         Georgia.add(emptyPrice4);
         Georgia.add(emptyPrice5);
 
         Germany.add(fedexZoneSPrices);
-        Germany.add(emptyPrice);
+        Germany.add(fedexPrioSPrices);
         Germany.add(upsSaveZ2Prices);
         Germany.add(upsExpressZ2Prices);
-        Germany.add(emptyPrice4);
-        Germany.add(emptyPrice5);
+        Germany.add(upsStandardZ1Prices);
+        Germany.add(g.glsGermany);
 
         Ghana.add(fedexZoneEPrices);
-        Ghana.add(emptyPrice);
+        Ghana.add(fedexPrioEPrices);
         Ghana.add(upsSaveZ10Prices);
         Ghana.add(emptyPrice3);
         Ghana.add(emptyPrice4);
         Ghana.add(emptyPrice5);
 
         Gibraltar.add(fedexZoneWPrices);
-        Gibraltar.add(emptyPrice);
+        Gibraltar.add(fedexPrioUPrices);
         Gibraltar.add(upsSaveZ6Prices);
         Gibraltar.add(emptyPrice3);
         Gibraltar.add(emptyPrice4);
-        Gibraltar.add(emptyPrice5);
+        Gibraltar.add(g.glsGibraltar);
 
         Greece.add(fedexZoneVPrices);
-        Greece.add(emptyPrice);
+        Greece.add(fedexPrioSPrices);
         Greece.add(upsSaveZ4Prices);
         Greece.add(upsExpressZ4Prices);
-        Greece.add(emptyPrice4);
-        Greece.add(emptyPrice5);
+        Greece.add(upsStandardZ4Prices);
+        Greece.add(g.glsGreece);
 
         Greenland.add(emptyPrice);
         Greenland.add(emptyPrice);
         Greenland.add(upsSaveZ6Prices);
         Greenland.add(emptyPrice3);
         Greenland.add(emptyPrice4);
-        Greenland.add(emptyPrice5);
+        Greenland.add(g.glsGreenland);
 
         Grenada.add(fedexZoneDPrices);
-        Grenada.add(emptyPrice);
+        Grenada.add(fedexPrioDPrices);
         Grenada.add(upsSaveZ10Prices);
         Grenada.add(emptyPrice3);
         Grenada.add(emptyPrice4);
         Grenada.add(emptyPrice5);
 
         Guadeloupe.add(fedexZoneDPrices);
-        Guadeloupe.add(emptyPrice);
+        Guadeloupe.add(fedexPrioDPrices);
         Guadeloupe.add(upsSaveZ10Prices);
         Guadeloupe.add(emptyPrice3);
         Guadeloupe.add(emptyPrice4);
@@ -984,154 +982,154 @@ public final class Control {
         Guam.add(emptyPrice5);
 
         Guatemala.add(fedexZoneDPrices);
-        Guatemala.add(emptyPrice);
+        Guatemala.add(fedexPrioDPrices);
         Guatemala.add(upsSaveZ10Prices);
         Guatemala.add(emptyPrice3);
         Guatemala.add(emptyPrice4);
         Guatemala.add(emptyPrice5);    
 
         Guinea.add(emptyPrice);
-        Guinea.add(emptyPrice);
+        Guinea.add(fedexPrioEPrices);
         Guinea.add(upsSaveZ10Prices);
         Guinea.add(emptyPrice3);
         Guinea.add(emptyPrice4);
         Guinea.add(emptyPrice5);
 
         GuineaBissau.add(fedexZoneEPrices);
-        GuineaBissau.add(emptyPrice);
+        GuineaBissau.add(fedexPrioEPrices);
         GuineaBissau.add(upsSaveZ10Prices);
         GuineaBissau.add(emptyPrice3);
         GuineaBissau.add(emptyPrice4);
         GuineaBissau.add(emptyPrice5);
 
         Guyana.add(fedexZoneDPrices);
-        Guyana.add(emptyPrice);
+        Guyana.add(fedexPrioDPrices);
         Guyana.add(upsSaveZ10Prices);
         Guyana.add(emptyPrice3);
         Guyana.add(emptyPrice4);
         Guyana.add(emptyPrice5);
 
         Haiti.add(fedexZoneDPrices);
-        Haiti.add(emptyPrice);
+        Haiti.add(fedexPrioDPrices);
         Haiti.add(upsSaveZ10Prices);
         Haiti.add(emptyPrice3);
         Haiti.add(emptyPrice4);
         Haiti.add(emptyPrice5);
 
         Honduras.add(fedexZoneDPrices);
-        Honduras.add(emptyPrice);
+        Honduras.add(fedexPrioDPrices);
         Honduras.add(upsSaveZ10Prices);
         Honduras.add(emptyPrice3);
         Honduras.add(emptyPrice4);
         Honduras.add(emptyPrice5);
 
         HongKong.add(fedexZoneBPrices);
-        HongKong.add(emptyPrice);
+        HongKong.add(fedexPrioBPrices);
         HongKong.add(upsSaveZ9Prices);
         HongKong.add(upsExpressZ9Prices);
         HongKong.add(emptyPrice4);
         HongKong.add(emptyPrice5);
 
         Hungary.add(fedexZoneUPrices);
-        Hungary.add(emptyPrice);
+        Hungary.add(fedexPrioTPrices);
         Hungary.add(upsSaveZ41Prices);
         Hungary.add(upsExpressZ41Prices);
-        Hungary.add(emptyPrice4);
+        Hungary.add(upsStandardZ31Prices);
         Hungary.add(emptyPrice5);
 
         Iceland.add(fedexZoneXPrices);
-        Iceland.add(emptyPrice);
+        Iceland.add(fedexPrioUPrices);
         Iceland.add(upsSaveZ6Prices);
         Iceland.add(upsExpressZ6Prices);
         Iceland.add(emptyPrice4);
-        Iceland.add(emptyPrice5);
+        Iceland.add(g.glsIceland);
 
         India.add(fedexZoneCPrices);
-        India.add(emptyPrice);
+        India.add(fedexPrioCPrices);
         India.add(upsSaveZ9Prices);
         India.add(upsExpressZ9Prices);
         India.add(emptyPrice4);
         India.add(emptyPrice5);
 
         Indonesia.add(fedexZoneBPrices);
-        Indonesia.add(emptyPrice);
+        Indonesia.add(fedexPrioBPrices);
         Indonesia.add(upsSaveZ9Prices);
         Indonesia.add(upsExpressZ9Prices);
         Indonesia.add(emptyPrice4);
         Indonesia.add(emptyPrice5);
 
         Iraq.add(fedexZoneCPrices);
-        Iraq.add(emptyPrice);
+        Iraq.add(fedexPrioCPrices);
         Iraq.add(upsSaveZ9Prices);
         Iraq.add(emptyPrice3);
         Iraq.add(emptyPrice4);
         Iraq.add(emptyPrice5);
 
         Ireland.add(fedexZoneUPrices);
-        Ireland.add(emptyPrice);
+        Ireland.add(fedexPrioSPrices);
         Ireland.add(upsSaveZ3Prices);
         Ireland.add(upsExpressZ3Prices);
-        Ireland.add(emptyPrice4);
-        Ireland.add(emptyPrice5);
+        Ireland.add(upsStandardZ3Prices);
+        Ireland.add(g.glsIreland);
 
         Israel.add(fedexZoneCPrices);
-        Israel.add(emptyPrice);
+        Israel.add(fedexPrioCPrices);
         Israel.add(upsSaveZ9Prices);
         Israel.add(upsExpressZ9Prices);
         Israel.add(emptyPrice4);
         Israel.add(emptyPrice5);
 
         Italy.add(fedexZoneVPrices);
-        Italy.add(emptyPrice);
+        Italy.add(fedexPrioSPrices);
         Italy.add(upsSaveZ4Prices);
         Italy.add(upsExpressZ4Prices);
-        Italy.add(emptyPrice4);
-        Italy.add(emptyPrice5);
+        Italy.add(upsStandardZ4Prices);
+        Italy.add(g.glsItaly);
 
         IvoryCoast.add(fedexZoneEPrices);
-        IvoryCoast.add(emptyPrice);
+        IvoryCoast.add(fedexPrioEPrices);
         IvoryCoast.add(upsSaveZ10Prices);
         IvoryCoast.add(emptyPrice3);
         IvoryCoast.add(emptyPrice4);
         IvoryCoast.add(emptyPrice5);
 
         Jamaica.add(fedexZoneDPrices);
-        Jamaica.add(emptyPrice);
+        Jamaica.add(fedexPrioDPrices);
         Jamaica.add(upsSaveZ10Prices);
         Jamaica.add(emptyPrice3);
         Jamaica.add(emptyPrice4);
         Jamaica.add(emptyPrice5);
 
         Japan.add(fedexZoneBPrices);
-        Japan.add(emptyPrice);
+        Japan.add(fedexPrioBPrices);
         Japan.add(upsSaveZ9Prices);
         Japan.add(upsExpressZ9Prices);
         Japan.add(emptyPrice4);
         Japan.add(emptyPrice5);
 
         Jordan.add(fedexZoneCPrices);
-        Jordan.add(emptyPrice);
+        Jordan.add(fedexPrioCPrices);
         Jordan.add(upsSaveZ9Prices);
         Jordan.add(upsExpressZ9Prices);
         Jordan.add(emptyPrice4);
         Jordan.add(emptyPrice5);
 
         Kazakhstan.add(fedexZoneEPrices);
-        Kazakhstan.add(emptyPrice);
+        Kazakhstan.add(fedexPrioEPrices);
         Kazakhstan.add(upsSaveZ10Prices);
         Kazakhstan.add(upsExpressZ10Prices);
         Kazakhstan.add(emptyPrice4);
         Kazakhstan.add(emptyPrice5);
 
         Kenya.add(fedexZoneEPrices);
-        Kenya.add(emptyPrice);
+        Kenya.add(fedexPrioEPrices);
         Kenya.add(upsSaveZ10Prices);
         Kenya.add(emptyPrice3);
         Kenya.add(emptyPrice4);
         Kenya.add(emptyPrice5);
 
         Kiribati.add(fedexZoneEPrices);
-        Kiribati.add(emptyPrice);
+        Kiribati.add(fedexPrioEPrices);
         Kiribati.add(upsSaveZ10Prices);
         Kiribati.add(emptyPrice3);
         Kiribati.add(emptyPrice4);
@@ -1152,98 +1150,98 @@ public final class Control {
         Kosrae.add(emptyPrice5);
 
         Kuwait.add(fedexZoneCPrices);
-        Kuwait.add(emptyPrice);
+        Kuwait.add(fedexPrioCPrices);
         Kuwait.add(upsSaveZ9Prices);
         Kuwait.add(upsExpressZ9Prices);
         Kuwait.add(emptyPrice4);
         Kuwait.add(emptyPrice5);
 
         Kyrgyzstan.add(fedexZoneEPrices);
-        Kyrgyzstan.add(emptyPrice);
+        Kyrgyzstan.add(fedexPrioEPrices);
         Kyrgyzstan.add(upsSaveZ10Prices);
         Kyrgyzstan.add(emptyPrice3);
         Kyrgyzstan.add(emptyPrice4);
         Kyrgyzstan.add(emptyPrice5);
 
         Laos.add(fedexZoneBPrices);
-        Laos.add(emptyPrice);
+        Laos.add(fedexPrioBPrices);
         Laos.add(upsSaveZ10Prices);
         Laos.add(emptyPrice3);
         Laos.add(emptyPrice4);
         Laos.add(emptyPrice5);
 
         Latvia.add(fedexZoneUPrices);
-        Latvia.add(emptyPrice);
+        Latvia.add(fedexPrioTPrices);
         Latvia.add(upsSaveZ42Prices);
         Latvia.add(upsExpressZ42Prices);
-        Latvia.add(emptyPrice4);
-        Latvia.add(emptyPrice5);
+        Latvia.add(upsStandardZ31Prices);
+        Latvia.add(g.glsLatvia);
 
         Lebanon.add(fedexZoneCPrices);
-        Lebanon.add(emptyPrice);
+        Lebanon.add(fedexPrioCPrices);
         Lebanon.add(upsSaveZ9Prices);
         Lebanon.add(upsExpressZ9Prices);
         Lebanon.add(emptyPrice4);
         Lebanon.add(emptyPrice5);
 
         Lesotho.add(fedexZoneEPrices);
-        Lesotho.add(emptyPrice);
+        Lesotho.add(fedexPrioEPrices);
         Lesotho.add(upsSaveZ10Prices);
         Lesotho.add(emptyPrice3);
         Lesotho.add(emptyPrice4);
         Lesotho.add(emptyPrice5);
 
         Liberia.add(fedexZoneEPrices);
-        Liberia.add(emptyPrice);
+        Liberia.add(fedexPrioEPrices);
         Liberia.add(upsSaveZ10Prices);
         Liberia.add(emptyPrice3);
         Liberia.add(emptyPrice4);
         Liberia.add(emptyPrice5);
 
         Libya.add(fedexZoneCPrices);
-        Libya.add(emptyPrice);
+        Libya.add(fedexPrioCPrices);
         Libya.add(upsSaveZ10Prices);
         Libya.add(emptyPrice3);
         Libya.add(emptyPrice4);
         Libya.add(emptyPrice5);
 
         Liechtenstein.add(fedexZoneWPrices);
-        Liechtenstein.add(emptyPrice);
+        Liechtenstein.add(fedexPrioUPrices);
         Liechtenstein.add(upsSaveZ61Prices);
         Liechtenstein.add(upsExpressZ61Prices);
-        Liechtenstein.add(emptyPrice4);
-        Liechtenstein.add(emptyPrice5);
+        Liechtenstein.add(upsStandardZ6Prices);
+        Liechtenstein.add(g.glsLichtenstein);
 
         Lithuania.add(fedexZoneUPrices);
-        Lithuania.add(emptyPrice);
+        Lithuania.add(fedexPrioTPrices);
         Lithuania.add(upsSaveZ42Prices);
         Lithuania.add(upsExpressZ42Prices);
-        Lithuania.add(emptyPrice4);
-        Lithuania.add(emptyPrice5);
+        Lithuania.add(upsStandardZ31Prices);
+        Lithuania.add(g.glsLithuania);
 
         Luxembourg.add(fedexZoneSPrices);
-        Luxembourg.add(emptyPrice);
+        Luxembourg.add(fedexPrioSPrices);
         Luxembourg.add(upsSaveZ2Prices);
         Luxembourg.add(upsExpressZ2Prices);
-        Luxembourg.add(emptyPrice4);
-        Luxembourg.add(emptyPrice5);
+        Luxembourg.add(upsStandardZ2Prices);
+        Luxembourg.add(g.glsLuxembourg);
 
         Macau.add(fedexZoneBPrices);
-        Macau.add(emptyPrice);
+        Macau.add(fedexPrioBPrices);
         Macau.add(upsSaveZ10Prices);
         Macau.add(emptyPrice3);
         Macau.add(emptyPrice4);
         Macau.add(emptyPrice5);
 
         Macedonia.add(fedexZoneXPrices);
-        Macedonia.add(emptyPrice);
+        Macedonia.add(fedexPrioVPrices);
         Macedonia.add(upsSaveZ7Prices);
         Macedonia.add(emptyPrice3);
         Macedonia.add(emptyPrice4);
         Macedonia.add(emptyPrice5);
 
         Madagascar.add(fedexZoneEPrices);
-        Madagascar.add(emptyPrice);
+        Madagascar.add(fedexPrioEPrices);
         Madagascar.add(upsSaveZ10Prices);
         Madagascar.add(emptyPrice3);
         Madagascar.add(emptyPrice4);
@@ -1257,63 +1255,63 @@ public final class Control {
         Madeira.add(emptyPrice5);
 
         Malawi.add(fedexZoneEPrices);
-        Malawi.add(emptyPrice);
+        Malawi.add(fedexPrioEPrices);
         Malawi.add(upsSaveZ10Prices);
         Malawi.add(emptyPrice3);
         Malawi.add(emptyPrice4);
         Malawi.add(emptyPrice5);
 
         Malaysia.add(fedexZoneBPrices);
-        Malaysia.add(emptyPrice);
+        Malaysia.add(fedexPrioBPrices);
         Malaysia.add(upsSaveZ9Prices);
         Malaysia.add(upsExpressZ9Prices);
         Malaysia.add(emptyPrice4);
         Malaysia.add(emptyPrice5);
 
         Maldives.add(fedexZoneEPrices);
-        Maldives.add(emptyPrice);
+        Maldives.add(fedexPrioEPrices);
         Maldives.add(upsSaveZ10Prices);
         Maldives.add(emptyPrice3);
         Maldives.add(emptyPrice4);
         Maldives.add(emptyPrice5);
 
         Mali.add(fedexZoneEPrices);
-        Mali.add(emptyPrice);
+        Mali.add(fedexPrioEPrices);
         Mali.add(upsSaveZ10Prices);
         Mali.add(emptyPrice3);
         Mali.add(emptyPrice4);
         Mali.add(emptyPrice5);
 
         Malta.add(fedexZoneXPrices);
-        Malta.add(emptyPrice);
+        Malta.add(fedexPrioTPrices);
         Malta.add(upsSaveZ42Prices);
         Malta.add(emptyPrice3);
         Malta.add(emptyPrice4);
-        Malta.add(emptyPrice5);
+        Malta.add(g.glsMalta);
 
         MarshallIslands.add(fedexZoneEPrices);
-        MarshallIslands.add(emptyPrice);
+        MarshallIslands.add(fedexPrioEPrices);
         MarshallIslands.add(upsSaveZ10Prices);
         MarshallIslands.add(emptyPrice3);
         MarshallIslands.add(emptyPrice4);
         MarshallIslands.add(emptyPrice5);
 
         Martinique.add(fedexZoneDPrices);
-        Martinique.add(emptyPrice);
+        Martinique.add(fedexPrioDPrices);
         Martinique.add(upsSaveZ10Prices);
         Martinique.add(emptyPrice3);
         Martinique.add(emptyPrice4);
         Martinique.add(emptyPrice5);
 
         Mauritania.add(fedexZoneEPrices);
-        Mauritania.add(emptyPrice);
+        Mauritania.add(fedexPrioEPrices);
         Mauritania.add(upsSaveZ10Prices);
         Mauritania.add(emptyPrice3);
         Mauritania.add(emptyPrice4);
         Mauritania.add(emptyPrice5);
 
         Mauritius.add(fedexZoneEPrices);
-        Mauritius.add(emptyPrice);
+        Mauritius.add(fedexPrioEPrices);
         Mauritius.add(upsSaveZ10Prices);
         Mauritius.add(emptyPrice3);
         Mauritius.add(emptyPrice4);
@@ -1334,102 +1332,102 @@ public final class Control {
         Melilla.add(emptyPrice5);
 
         Mexico.add(fedexZoneBPrices);
-        Mexico.add(emptyPrice);
+        Mexico.add(fedexPrioBPrices);
         Mexico.add(upsSaveZ8Prices);
         Mexico.add(upsExpressZ8Prices);
         Mexico.add(emptyPrice4);
         Mexico.add(emptyPrice5);
 
         Micronesia.add(fedexZoneEPrices);
-        Micronesia.add(emptyPrice);
+        Micronesia.add(fedexPrioEPrices);
         Micronesia.add(upsSaveZ10Prices);
         Micronesia.add(emptyPrice3);
         Micronesia.add(emptyPrice4);
         Micronesia.add(emptyPrice5);
 
         Moldova.add(fedexZoneXPrices);
-        Moldova.add(emptyPrice);
+        Moldova.add(fedexPrioVPrices);
         Moldova.add(upsSaveZ7Prices);
         Moldova.add(emptyPrice3);
         Moldova.add(emptyPrice4);
         Moldova.add(emptyPrice5);
 
         Monaco.add(emptyPrice);
-        Monaco.add(emptyPrice);
+        Monaco.add(fedexPrioSPrices);
         Monaco.add(upsSaveZ3Prices);
         Monaco.add(upsExpressZ3Prices);
-        Monaco.add(emptyPrice4);
+        Monaco.add(upsStandardZ3Prices);
         Monaco.add(emptyPrice5);
 
         Mongolia.add(fedexZoneEPrices);
-        Mongolia.add(emptyPrice);
+        Mongolia.add(fedexPrioEPrices);
         Mongolia.add(upsSaveZ10Prices);
         Mongolia.add(emptyPrice3);
         Mongolia.add(emptyPrice4);
         Mongolia.add(emptyPrice5);
 
         Montenegro.add(fedexZoneXPrices);
-        Montenegro.add(emptyPrice);
+        Montenegro.add(fedexPrioVPrices);
         Montenegro.add(upsSaveZ7Prices);
         Montenegro.add(emptyPrice3);
         Montenegro.add(emptyPrice4);
         Montenegro.add(emptyPrice5);
 
         Montserrat.add(fedexZoneDPrices);
-        Montserrat.add(emptyPrice);
+        Montserrat.add(fedexPrioDPrices);
         Montserrat.add(upsSaveZ10Prices);
         Montserrat.add(emptyPrice3);
         Montserrat.add(emptyPrice4);
         Montserrat.add(emptyPrice5);
 
         Morocco.add(fedexZoneCPrices);
-        Morocco.add(emptyPrice);
+        Morocco.add(fedexPrioCPrices);
         Morocco.add(upsSaveZ10Prices);
         Morocco.add(emptyPrice3);
         Morocco.add(emptyPrice4);
         Morocco.add(emptyPrice5);
 
         Mozambique.add(fedexZoneEPrices);
-        Mozambique.add(emptyPrice);
+        Mozambique.add(fedexPrioEPrices);
         Mozambique.add(upsSaveZ10Prices);
         Mozambique.add(emptyPrice3);
         Mozambique.add(emptyPrice4);
         Mozambique.add(emptyPrice5);
 
         Myanmar.add(fedexZoneCPrices);
-        Myanmar.add(emptyPrice);
+        Myanmar.add(fedexPrioCPrices);
         Myanmar.add(upsSaveZ9Prices);
         Myanmar.add(emptyPrice3);
         Myanmar.add(emptyPrice4);
         Myanmar.add(emptyPrice5);
 
         Namibia.add(fedexZoneEPrices);
-        Namibia.add(emptyPrice);
+        Namibia.add(fedexPrioEPrices);
         Namibia.add(upsSaveZ10Prices);
         Namibia.add(emptyPrice3);
         Namibia.add(emptyPrice4);
         Namibia.add(emptyPrice5);
         
         Nauru.add(fedexZoneEPrices);
-        Nauru.add(emptyPrice);
+        Nauru.add(fedexPrioEPrices);
         Nauru.add(emptyPrice2);
         Nauru.add(emptyPrice3);
         Nauru.add(emptyPrice4);
         Nauru.add(emptyPrice5);
 
         Nepal.add(fedexZoneCPrices);
-        Nepal.add(emptyPrice);
+        Nepal.add(fedexPrioCPrices);
         Nepal.add(upsSaveZ10Prices);
         Nepal.add(emptyPrice3);
         Nepal.add(emptyPrice4);
         Nepal.add(emptyPrice5);
 
         Netherlands.add(fedexZoneSPrices);
-        Netherlands.add(emptyPrice);
+        Netherlands.add(fedexPrioSPrices);
         Netherlands.add(upsSaveZ2Prices);
         Netherlands.add(upsExpressZ2Prices);
-        Netherlands.add(emptyPrice4);
-        Netherlands.add(emptyPrice5);
+        Netherlands.add(upsStandardZ2Prices);
+        Netherlands.add(g.glsNetherlands);
 
         Nevis.add(emptyPrice);
         Nevis.add(emptyPrice);
@@ -1439,28 +1437,28 @@ public final class Control {
         Nevis.add(emptyPrice5);
 
         NewCaledonia.add(fedexZoneEPrices);
-        NewCaledonia.add(emptyPrice);
+        NewCaledonia.add(fedexPrioEPrices);
         NewCaledonia.add(upsSaveZ10Prices);
         NewCaledonia.add(emptyPrice3);
         NewCaledonia.add(emptyPrice4);
         NewCaledonia.add(emptyPrice5);
 
         NewZealand.add(fedexZoneBPrices);
-        NewZealand.add(emptyPrice);
+        NewZealand.add(fedexPrioBPrices);
         NewZealand.add(upsSaveZ9Prices);
         NewZealand.add(upsExpressZ9Prices);
         NewZealand.add(emptyPrice4);
         NewZealand.add(emptyPrice5);
 
         Nicaragua.add(fedexZoneDPrices);
-        Nicaragua.add(emptyPrice);
+        Nicaragua.add(fedexPrioDPrices);
         Nicaragua.add(upsSaveZ10Prices);
         Nicaragua.add(emptyPrice3);
         Nicaragua.add(emptyPrice4);
         Nicaragua.add(emptyPrice5);
 
         Niger.add(fedexZoneEPrices);
-        Niger.add(emptyPrice);
+        Niger.add(fedexPrioEPrices);
         Niger.add(upsSaveZ10Prices);
         Niger.add(emptyPrice3);
         Niger.add(emptyPrice4);
@@ -1474,7 +1472,7 @@ public final class Control {
         Nigeria.add(emptyPrice5);
         
         NLAntilles.add(fedexZoneDPrices);
-        NLAntilles.add(emptyPrice);
+        NLAntilles.add(fedexPrioDPrices);
         NLAntilles.add(emptyPrice2);
         NLAntilles.add(emptyPrice3);
         NLAntilles.add(emptyPrice4);
@@ -1484,7 +1482,7 @@ public final class Control {
         NorthernIreland.add(emptyPrice);
         NorthernIreland.add(upsSaveZ4Prices);
         NorthernIreland.add(emptyPrice3);
-        NorthernIreland.add(emptyPrice4);
+        NorthernIreland.add(upsStandardZ4Prices);
         NorthernIreland.add(emptyPrice5);
 
         NorthernMarianaIslands.add(emptyPrice);
@@ -1495,81 +1493,81 @@ public final class Control {
         NorthernMarianaIslands.add(emptyPrice5);
 
         Norway.add(fedexZoneWPrices);
-        Norway.add(emptyPrice);
+        Norway.add(fedexPrioUPrices);
         Norway.add(upsSaveZ5Prices);
         Norway.add(upsExpressZ5Prices);
-        Norway.add(emptyPrice4);
-        Norway.add(emptyPrice5);
+        Norway.add(upsStandardZ5Prices);
+        Norway.add(g.glsNorway);
 
         Oman.add(fedexZoneCPrices);
-        Oman.add(emptyPrice);
+        Oman.add(fedexPrioCPrices);
         Oman.add(upsSaveZ9Prices);
         Oman.add(emptyPrice3);
         Oman.add(emptyPrice4);
         Oman.add(emptyPrice5);
 
         Pakistan.add(fedexZoneCPrices);
-        Pakistan.add(emptyPrice);
+        Pakistan.add(fedexPrioCPrices);
         Pakistan.add(upsSaveZ9Prices);
         Pakistan.add(emptyPrice3);
         Pakistan.add(emptyPrice4);
         Pakistan.add(emptyPrice5);
 
         Palau.add(fedexZoneEPrices);
-        Palau.add(emptyPrice);
+        Palau.add(fedexPrioEPrices);
         Palau.add(upsSaveZ10Prices);
         Palau.add(emptyPrice3);
         Palau.add(emptyPrice4);
         Palau.add(emptyPrice5);
         
         PalestineAuthority.add(fedexZoneCPrices);
-        PalestineAuthority.add(emptyPrice);
+        PalestineAuthority.add(fedexPrioCPrices);
         PalestineAuthority.add(emptyPrice2);
         PalestineAuthority.add(emptyPrice3);
         PalestineAuthority.add(emptyPrice4);
         PalestineAuthority.add(emptyPrice5);
 
         Panama.add(fedexZoneDPrices);
-        Panama.add(emptyPrice);
+        Panama.add(fedexPrioDPrices);
         Panama.add(upsSaveZ10Prices);
         Panama.add(emptyPrice3);
         Panama.add(emptyPrice4);
         Panama.add(emptyPrice5);
 
         PapuaNewGuinea.add(fedexZoneEPrices);
-        PapuaNewGuinea.add(emptyPrice);
+        PapuaNewGuinea.add(fedexPrioEPrices);
         PapuaNewGuinea.add(upsSaveZ10Prices);
         PapuaNewGuinea.add(emptyPrice3);
         PapuaNewGuinea.add(emptyPrice4);
         PapuaNewGuinea.add(emptyPrice5);
 
         Paraguay.add(fedexZoneDPrices);
-        Paraguay.add(emptyPrice);
+        Paraguay.add(fedexPrioDPrices);
         Paraguay.add(upsSaveZ10Prices);
         Paraguay.add(emptyPrice3);
         Paraguay.add(emptyPrice4);
         Paraguay.add(emptyPrice5);
 
         Peru.add(fedexZoneDPrices);
-        Peru.add(emptyPrice);
+        Peru.add(fedexPrioDPrices);
         Peru.add(upsSaveZ10Prices);
         Peru.add(upsExpressZ10Prices);
         Peru.add(emptyPrice4);
         Peru.add(emptyPrice5);
 
         Philippines.add(fedexZoneBPrices);
-        Philippines.add(emptyPrice);
+        Philippines.add(fedexPrioBPrices);
         Philippines.add(upsSaveZ9Prices);
         Philippines.add(upsExpressZ9Prices);
         Philippines.add(emptyPrice4);
         Philippines.add(emptyPrice5);
 
         Poland.add(fedexZoneUPrices);
-        Poland.add(emptyPrice);
+        Poland.add(fedexPrioTPrices);
         Poland.add(upsSaveZ41Prices);
         Poland.add(upsExpressZ41Prices);
-        Poland.add(emptyPrice4);
-        Poland.add(emptyPrice5);
+        Poland.add(upsStandardZ21Prices);
+        Poland.add(g.glsPoland);
 
         Ponape.add(emptyPrice);
         Ponape.add(emptyPrice);
@@ -1579,39 +1577,39 @@ public final class Control {
         Ponape.add(emptyPrice5);
 
         Portugal.add(fedexZoneVPrices);
-        Portugal.add(emptyPrice);
+        Portugal.add(fedexPrioSPrices);
         Portugal.add(upsSaveZ4Prices);
         Portugal.add(upsExpressZ4Prices);
-        Portugal.add(emptyPrice4);
-        Portugal.add(emptyPrice5);
+        Portugal.add(upsStandardZ4Prices);
+        Portugal.add(g.glsPortugal);
 
         PuertoRico.add(fedexZoneDPrices);
-        PuertoRico.add(emptyPrice);
+        PuertoRico.add(fedexPrioDPrices);
         PuertoRico.add(upsSaveZ8Prices);
         PuertoRico.add(upsExpressZ8Prices);
         PuertoRico.add(emptyPrice4);
         PuertoRico.add(emptyPrice5);
 
         Qatar.add(fedexZoneCPrices);
-        Qatar.add(emptyPrice);
+        Qatar.add(fedexPrioCPrices);
         Qatar.add(upsSaveZ9Prices);
         Qatar.add(upsExpressZ9Prices);
         Qatar.add(emptyPrice4);
         Qatar.add(emptyPrice5);
 
         ReunionIsland.add(fedexZoneEPrices);
-        ReunionIsland.add(emptyPrice);
+        ReunionIsland.add(fedexPrioEPrices);
         ReunionIsland.add(upsSaveZ10Prices);
         ReunionIsland.add(emptyPrice3);
         ReunionIsland.add(emptyPrice4);
         ReunionIsland.add(emptyPrice5);
 
         Romania.add(fedexZoneVPrices);
-        Romania.add(emptyPrice);
+        Romania.add(fedexPrioTPrices);
         Romania.add(upsSaveZ42Prices);
         Romania.add(upsExpressZ42Prices);
-        Romania.add(emptyPrice4);
-        Romania.add(emptyPrice5);
+        Romania.add(upsStandardZ31Prices);
+        Romania.add(g.glsRomania);
 
         Rota.add(emptyPrice);
         Rota.add(emptyPrice);
@@ -1621,14 +1619,14 @@ public final class Control {
         Rota.add(emptyPrice5);
 
         Russia.add(fedexZoneXPrices);
-        Russia.add(emptyPrice);
+        Russia.add(fedexPrioVPrices);
         Russia.add(upsSaveZ7Prices);
         Russia.add(upsExpressZ7Prices);
         Russia.add(emptyPrice4);
         Russia.add(emptyPrice5);
 
         Rwanda.add(fedexZoneEPrices);
-        Rwanda.add(emptyPrice);
+        Rwanda.add(fedexPrioEPrices);
         Rwanda.add(upsSaveZ10Prices);
         Rwanda.add(emptyPrice3);
         Rwanda.add(emptyPrice4);
@@ -1642,14 +1640,14 @@ public final class Control {
         Saba.add(emptyPrice5);
 
         Saipan.add(fedexZoneEPrices);
-        Saipan.add(emptyPrice);
+        Saipan.add(fedexPrioEPrices);
         Saipan.add(upsSaveZ10Prices);
         Saipan.add(emptyPrice3);
         Saipan.add(emptyPrice4);
         Saipan.add(emptyPrice5);
 
         Samoa.add(fedexZoneEPrices);
-        Samoa.add(emptyPrice);
+        Samoa.add(fedexPrioEPrices);
         Samoa.add(upsSaveZ10Prices);
         Samoa.add(emptyPrice3);
         Samoa.add(emptyPrice4);
@@ -1659,11 +1657,11 @@ public final class Control {
         SanMarino.add(emptyPrice);
         SanMarino.add(upsSaveZ6Prices);
         SanMarino.add(emptyPrice3);
-        SanMarino.add(emptyPrice4);
+        SanMarino.add(upsStandardZ6Prices);
         SanMarino.add(emptyPrice5);
 
         SaudiArabia.add(fedexZoneCPrices);
-        SaudiArabia.add(emptyPrice);
+        SaudiArabia.add(fedexPrioCPrices);
         SaudiArabia.add(upsSaveZ9Prices);
         SaudiArabia.add(upsExpressZ9Prices);
         SaudiArabia.add(emptyPrice4);
@@ -1673,95 +1671,95 @@ public final class Control {
         Scotland.add(emptyPrice);
         Scotland.add(upsSaveZ3Prices);
         Scotland.add(upsExpressZ3Prices);
-        Scotland.add(emptyPrice4);
-        Scotland.add(emptyPrice5);
+        Scotland.add(upsStandardZ3Prices);
+        Scotland.add(g.glsGreatBritain);
 
         Senegal.add(fedexZoneEPrices);
-        Senegal.add(emptyPrice);
+        Senegal.add(fedexPrioEPrices);
         Senegal.add(upsSaveZ10Prices);
         Senegal.add(emptyPrice3);
         Senegal.add(emptyPrice4);
         Senegal.add(emptyPrice5);
 
         Serbia.add(fedexZoneXPrices);
-        Serbia.add(emptyPrice);
+        Serbia.add(fedexPrioVPrices);
         Serbia.add(upsSaveZ7Prices);
         Serbia.add(emptyPrice3);
         Serbia.add(emptyPrice4);
-        Serbia.add(emptyPrice5);
+        Serbia.add(g.glsSerbia);
 
         Seychelles.add(fedexZoneEPrices);
-        Seychelles.add(emptyPrice);
+        Seychelles.add(fedexPrioEPrices);
         Seychelles.add(upsSaveZ10Prices);
         Seychelles.add(emptyPrice3);
         Seychelles.add(emptyPrice4);
         Seychelles.add(emptyPrice5);
 
         SierraLeone.add(fedexZoneEPrices);
-        SierraLeone.add(emptyPrice);
+        SierraLeone.add(fedexPrioEPrices);
         SierraLeone.add(upsSaveZ10Prices);
         SierraLeone.add(emptyPrice3);
         SierraLeone.add(emptyPrice4);
         SierraLeone.add(emptyPrice5);
 
         Singapore.add(fedexZoneBPrices);
-        Singapore.add(emptyPrice);
+        Singapore.add(fedexPrioBPrices);
         Singapore.add(upsSaveZ9Prices);
         Singapore.add(upsExpressZ9Prices);
         Singapore.add(emptyPrice4);
         Singapore.add(emptyPrice5);
 
         SlovakRepublic.add(fedexZoneUPrices);
-        SlovakRepublic.add(emptyPrice);
+        SlovakRepublic.add(fedexPrioTPrices);
         SlovakRepublic.add(upsSaveZ41Prices);
         SlovakRepublic.add(upsExpressZ41Prices);
-        SlovakRepublic.add(emptyPrice4);
-        SlovakRepublic.add(emptyPrice5);
+        SlovakRepublic.add(upsStandardZ31Prices);
+        SlovakRepublic.add(g.glsSlovakRepublic);
 
         Slovenia.add(fedexZoneUPrices);
-        Slovenia.add(emptyPrice);
+        Slovenia.add(fedexPrioTPrices);
         Slovenia.add(upsSaveZ41Prices);
         Slovenia.add(upsExpressZ41Prices);
-        Slovenia.add(emptyPrice4);
-        Slovenia.add(emptyPrice5);
+        Slovenia.add(upsStandardZ31Prices);
+        Slovenia.add(g.glsSlovenia);
 
         SolomonIslands.add(fedexZoneEPrices);
-        SolomonIslands.add(emptyPrice);
+        SolomonIslands.add(fedexPrioEPrices);
         SolomonIslands.add(upsSaveZ10Prices);
         SolomonIslands.add(emptyPrice3);
         SolomonIslands.add(emptyPrice4);
         SolomonIslands.add(emptyPrice5);
         
         Somalia.add(fedexZoneEPrices);
-        Somalia.add(emptyPrice);
+        Somalia.add(fedexPrioEPrices);
         Somalia.add(emptyPrice);
         Somalia.add(emptyPrice);
         Somalia.add(emptyPrice);
         Somalia.add(emptyPrice);
 
         SouthAfrica.add(fedexZoneDPrices);
-        SouthAfrica.add(emptyPrice);
+        SouthAfrica.add(fedexPrioDPrices);
         SouthAfrica.add(upsSaveZ10Prices);
         SouthAfrica.add(upsExpressZ10Prices);
         SouthAfrica.add(emptyPrice4);
         SouthAfrica.add(emptyPrice5);
 
         SouthKorea.add(fedexZoneBPrices);
-        SouthKorea.add(emptyPrice);
+        SouthKorea.add(fedexPrioBPrices);
         SouthKorea.add(upsSaveZ9Prices);
         SouthKorea.add(emptyPrice3);
         SouthKorea.add(emptyPrice4);
         SouthKorea.add(emptyPrice5);
 
         Spain.add(fedexZoneVPrices);
-        Spain.add(emptyPrice);
+        Spain.add(fedexPrioSPrices);
         Spain.add(upsSaveZ4Prices);
         Spain.add(upsExpressZ4Prices);
-        Spain.add(emptyPrice4);
-        Spain.add(emptyPrice5);
+        Spain.add(upsStandardZ4Prices);
+        Spain.add(g.glsSpain);
 
         SriLanka.add(fedexZoneCPrices);
-        SriLanka.add(emptyPrice);
+        SriLanka.add(fedexPrioCPrices);
         SriLanka.add(upsSaveZ10Prices);
         SriLanka.add(emptyPrice3);
         SriLanka.add(emptyPrice4);
@@ -1803,28 +1801,28 @@ public final class Control {
         StJohn.add(emptyPrice5);
 
         StKitts.add(fedexZoneDPrices);
-        StKitts.add(emptyPrice);
+        StKitts.add(fedexPrioDPrices);
         StKitts.add(upsSaveZ10Prices);
         StKitts.add(emptyPrice3);
         StKitts.add(emptyPrice4);
         StKitts.add(emptyPrice5);
 
         StLucia.add(emptyPrice);
-        StLucia.add(emptyPrice);
+        StLucia.add(fedexPrioDPrices);
         StLucia.add(upsSaveZ10Prices);
         StLucia.add(emptyPrice3);
         StLucia.add(emptyPrice4);
         StLucia.add(emptyPrice5);
 
         StMartin.add(emptyPrice);
-        StMartin.add(emptyPrice);
+        StMartin.add(fedexPrioDPrices);
         StMartin.add(upsSaveZ10Prices);
         StMartin.add(emptyPrice3);
         StMartin.add(emptyPrice4);
         StMartin.add(emptyPrice5);
 
         StMaarten.add(emptyPrice);
-        StMaarten.add(emptyPrice);
+        StMaarten.add(fedexPrioDPrices);
         StMaarten.add(upsSaveZ10Prices);
         StMaarten.add(emptyPrice3);
         StMaarten.add(emptyPrice4);
@@ -1838,49 +1836,49 @@ public final class Control {
         StThomas.add(emptyPrice5);
 
         StVincent.add(fedexZoneDPrices);
-        StVincent.add(emptyPrice);
+        StVincent.add(fedexPrioDPrices);
         StVincent.add(upsSaveZ10Prices);
         StVincent.add(emptyPrice3);
         StVincent.add(emptyPrice4);
         StVincent.add(emptyPrice5);
         
         Sudan.add(fedexZoneEPrices);
-        Sudan.add(emptyPrice);
+        Sudan.add(fedexPrioEPrices);
         Sudan.add(emptyPrice2);
         Sudan.add(emptyPrice3);
         Sudan.add(emptyPrice4);
         Sudan.add(emptyPrice5);
 
         Suriname.add(fedexZoneDPrices);
-        Suriname.add(emptyPrice);
+        Suriname.add(fedexPrioDPrices);
         Suriname.add(upsSaveZ10Prices);
         Suriname.add(emptyPrice3);
         Suriname.add(emptyPrice4);
         Suriname.add(emptyPrice5);
 
         Swaziland.add(fedexZoneEPrices);
-        Swaziland.add(emptyPrice);
+        Swaziland.add(fedexPrioEPrices);
         Swaziland.add(upsSaveZ10Prices);
         Swaziland.add(emptyPrice3);
         Swaziland.add(emptyPrice4);
         Swaziland.add(emptyPrice5);
 
         Sweden.add(fedexZoneRPrices);
-        Sweden.add(emptyPrice);
+        Sweden.add(fedexPrioRPrices);
         Sweden.add(upsSaveZ2Prices);
         Sweden.add(upsExpressZ2Prices);
-        Sweden.add(emptyPrice4);
-        Sweden.add(emptyPrice5);
+        Sweden.add(upsStandardZ1Prices);
+        Sweden.add(g.glsSweden);
 
         Switzerland.add(fedexZoneWPrices);
-        Switzerland.add(emptyPrice);
+        Switzerland.add(fedexPrioUPrices);
         Switzerland.add(upsSaveZ61Prices);
         Switzerland.add(upsExpressZ61Prices);
-        Switzerland.add(emptyPrice4);
-        Switzerland.add(emptyPrice5);
+        Switzerland.add(upsStandardZ6Prices);
+        Switzerland.add(g.glsSwitzerland);
         
         Syria.add(fedexZoneCPrices);
-        Syria.add(emptyPrice);
+        Syria.add(fedexPrioCPrices);
         Syria.add(emptyPrice2);
         Syria.add(emptyPrice3);
         Syria.add(emptyPrice4);
@@ -1894,7 +1892,7 @@ public final class Control {
         Tahiti.add(emptyPrice5);
 
         Taiwan.add(fedexZoneBPrices);
-        Taiwan.add(emptyPrice);
+        Taiwan.add(fedexPrioBPrices);
         Taiwan.add(upsSaveZ9Prices);
         Taiwan.add(upsExpressZ9Prices);
         Taiwan.add(emptyPrice4);
@@ -1908,14 +1906,14 @@ public final class Control {
         Tajikistan.add(emptyPrice5);
 
         Tanzania.add(fedexZoneEPrices);
-        Tanzania.add(emptyPrice);
+        Tanzania.add(fedexPrioEPrices);
         Tanzania.add(upsSaveZ10Prices);
         Tanzania.add(emptyPrice3);
         Tanzania.add(emptyPrice4);
         Tanzania.add(emptyPrice5);
 
         Thailand.add(fedexZoneBPrices);
-        Thailand.add(emptyPrice);
+        Thailand.add(fedexPrioBPrices);
         Thailand.add(upsSaveZ9Prices);
         Thailand.add(upsExpressZ9Prices);
         Thailand.add(emptyPrice4);
@@ -1929,14 +1927,14 @@ public final class Control {
         Tinian.add(emptyPrice5);
 
         Togo.add(fedexZoneEPrices);
-        Togo.add(emptyPrice);
+        Togo.add(fedexPrioEPrices);
         Togo.add(upsSaveZ10Prices);
         Togo.add(emptyPrice3);
         Togo.add(emptyPrice4);
         Togo.add(emptyPrice5);
 
         Tonga.add(fedexZoneEPrices);
-        Tonga.add(emptyPrice);
+        Tonga.add(fedexPrioEPrices);
         Tonga.add(upsSaveZ10Prices);
         Tonga.add(emptyPrice3);
         Tonga.add(emptyPrice4);
@@ -1950,7 +1948,7 @@ public final class Control {
         Tortola.add(emptyPrice5);
 
         TrinidadTobago.add(fedexZoneDPrices);
-        TrinidadTobago.add(emptyPrice);
+        TrinidadTobago.add(fedexPrioDPrices);
         TrinidadTobago.add(upsSaveZ10Prices);
         TrinidadTobago.add(emptyPrice3);
         TrinidadTobago.add(emptyPrice4);
@@ -1964,49 +1962,49 @@ public final class Control {
         Truk.add(emptyPrice5);
 
         Tunisia.add(fedexZoneCPrices);
-        Tunisia.add(emptyPrice);
+        Tunisia.add(fedexPrioCPrices);
         Tunisia.add(upsSaveZ10Prices);
         Tunisia.add(emptyPrice3);
         Tunisia.add(emptyPrice4);
         Tunisia.add(emptyPrice5);
 
         Turkey.add(fedexZoneXPrices);
-        Turkey.add(emptyPrice);
+        Turkey.add(fedexPrioVPrices);
         Turkey.add(upsSaveZ6Prices);
         Turkey.add(upsExpressZ6Prices);
         Turkey.add(emptyPrice4);
-        Turkey.add(emptyPrice5);
+        Turkey.add(g.glsTurkey);
 
         Turkmenistan.add(fedexZoneEPrices);
-        Turkmenistan.add(emptyPrice);
+        Turkmenistan.add(fedexPrioEPrices);
         Turkmenistan.add(upsSaveZ10Prices);
         Turkmenistan.add(emptyPrice3);
         Turkmenistan.add(emptyPrice4);
         Turkmenistan.add(emptyPrice5);
 
         TurksandCaicosIslands.add(fedexZoneDPrices);
-        TurksandCaicosIslands.add(emptyPrice);
+        TurksandCaicosIslands.add(fedexPrioDPrices);
         TurksandCaicosIslands.add(upsSaveZ10Prices);
         TurksandCaicosIslands.add(emptyPrice3);
         TurksandCaicosIslands.add(emptyPrice4);
         TurksandCaicosIslands.add(emptyPrice5);
 
         Tuvalu.add(fedexZoneEPrices);
-        Tuvalu.add(emptyPrice);
+        Tuvalu.add(fedexPrioEPrices);
         Tuvalu.add(upsSaveZ10Prices);
         Tuvalu.add(emptyPrice3);
         Tuvalu.add(emptyPrice4);
         Tuvalu.add(emptyPrice5);
 
         Uganda.add(fedexZoneEPrices);
-        Uganda.add(emptyPrice);
+        Uganda.add(fedexPrioEPrices);
         Uganda.add(upsSaveZ10Prices);
         Uganda.add(emptyPrice3);
         Uganda.add(emptyPrice4);
         Uganda.add(emptyPrice5);
 
         Ukraine.add(fedexZoneXPrices);
-        Ukraine.add(emptyPrice);
+        Ukraine.add(fedexPrioVPrices);
         Ukraine.add(upsSaveZ7Prices);
         Ukraine.add(emptyPrice3);
         Ukraine.add(emptyPrice4);
@@ -2020,56 +2018,56 @@ public final class Control {
         UnionIsland.add(emptyPrice5);
 
         UnitedArabEmirates.add(fedexZoneCPrices);
-        UnitedArabEmirates.add(fedexPrioAPrices);
+        UnitedArabEmirates.add(fedexPrioCPrices);
         UnitedArabEmirates.add(upsSaveZ9Prices);
         UnitedArabEmirates.add(upsExpressZ9Prices);
         UnitedArabEmirates.add(emptyPrice4);
         UnitedArabEmirates.add(emptyPrice5);
 
         UnitedKingdom.add(fedexZoneTPrices);
-        UnitedKingdom.add(emptyPrice);
+        UnitedKingdom.add(fedexPrioSPrices);
         UnitedKingdom.add(upsSaveZ3Prices);
         UnitedKingdom.add(upsExpressZ3Prices);
-        UnitedKingdom.add(emptyPrice4);
-        UnitedKingdom.add(emptyPrice5);
+        UnitedKingdom.add(upsStandardZ3Prices);
+        UnitedKingdom.add(g.glsGreatBritain);
 
         UnitedStates.add(fedexZoneAPrices);
-        UnitedStates.add(emptyPrice);
+        UnitedStates.add(fedexPrioAPrices);
         UnitedStates.add(upsSaveZ8Prices);
         UnitedStates.add(upsExpressZ8Prices);
         UnitedStates.add(emptyPrice4);
         UnitedStates.add(emptyPrice5);
 
         Uruguay.add(fedexZoneDPrices);
-        Uruguay.add(emptyPrice);
+        Uruguay.add(fedexPrioDPrices);
         Uruguay.add(upsSaveZ10Prices);
         Uruguay.add(emptyPrice3);
         Uruguay.add(emptyPrice4);
         Uruguay.add(emptyPrice5);
 
         Uzbekistan.add(fedexZoneEPrices);
-        Uzbekistan.add(emptyPrice);
+        Uzbekistan.add(fedexPrioEPrices);
         Uzbekistan.add(upsSaveZ10Prices);
         Uzbekistan.add(emptyPrice3);
         Uzbekistan.add(emptyPrice4);
         Uzbekistan.add(emptyPrice5);
 
         Vanuatu.add(fedexZoneEPrices);
-        Vanuatu.add(emptyPrice);
+        Vanuatu.add(fedexPrioEPrices);
         Vanuatu.add(upsSaveZ10Prices);
         Vanuatu.add(emptyPrice3);
         Vanuatu.add(emptyPrice4);
         Vanuatu.add(emptyPrice5);
 
         Venezuela.add(fedexZoneDPrices);
-        Venezuela.add(emptyPrice);
+        Venezuela.add(fedexPrioDPrices);
         Venezuela.add(upsSaveZ10Prices);
         Venezuela.add(emptyPrice3);
         Venezuela.add(emptyPrice4);
         Venezuela.add(emptyPrice5);
 
         Vietnam.add(fedexZoneBPrices);
-        Vietnam.add(emptyPrice);
+        Vietnam.add(fedexPrioBPrices);
         Vietnam.add(upsSaveZ10Prices);
         Vietnam.add(upsExpressZ10Prices);
         Vietnam.add(emptyPrice4);
@@ -2083,7 +2081,7 @@ public final class Control {
         VirginGorda.add(emptyPrice5);
 
         VirginIslands.add(fedexZoneDPrices);
-        VirginIslands.add(emptyPrice);
+        VirginIslands.add(fedexPrioDPrices);
         VirginIslands.add(upsSaveZ10Prices);
         VirginIslands.add(emptyPrice3);
         VirginIslands.add(emptyPrice4);
@@ -2093,11 +2091,11 @@ public final class Control {
         Wales.add(emptyPrice);
         Wales.add(upsSaveZ3Prices);
         Wales.add(upsExpressZ3Prices);
-        Wales.add(emptyPrice4);
-        Wales.add(emptyPrice5);
+        Wales.add(upsStandardZ3Prices);
+        Wales.add(g.glsGreatBritain);
 
         WallisandFutuna.add(fedexZoneEPrices);
-        WallisandFutuna.add(emptyPrice);
+        WallisandFutuna.add(fedexPrioEPrices);
         WallisandFutuna.add(upsSaveZ10Prices);
         WallisandFutuna.add(emptyPrice3);
         WallisandFutuna.add(emptyPrice4);
@@ -2118,28 +2116,28 @@ public final class Control {
         Yap.add(emptyPrice5);
 
         Yemen.add(fedexZoneCPrices);
-        Yemen.add(emptyPrice);
+        Yemen.add(fedexPrioCPrices);
         Yemen.add(upsSaveZ10Prices);
         Yemen.add(emptyPrice3);
         Yemen.add(emptyPrice4);
         Yemen.add(emptyPrice5);
         
         Zaire.add(fedexZoneEPrices);
-        Zaire.add(emptyPrice);
+        Zaire.add(fedexPrioEPrices);
         Zaire.add(emptyPrice2);
         Zaire.add(emptyPrice3);
         Zaire.add(emptyPrice4);
         Zaire.add(emptyPrice5);
 
         Zambia.add(fedexZoneEPrices);
-        Zambia.add(emptyPrice);
+        Zambia.add(fedexPrioEPrices);
         Zambia.add(upsSaveZ10Prices);
         Zambia.add(emptyPrice3);
         Zambia.add(emptyPrice4);
         Zambia.add(emptyPrice5);
 
         Zimbabwe.add(fedexZoneEPrices);
-        Zimbabwe.add(emptyPrice);
+        Zimbabwe.add(fedexPrioEPrices);
         Zimbabwe.add(upsSaveZ10Prices);
         Zimbabwe.add(emptyPrice3);
         Zimbabwe.add(emptyPrice4);
@@ -2211,8 +2209,7 @@ public final class Control {
         allLists.put("EastTimor", EastTimor);
         allLists.put("Ecuador", Ecuador);
         allLists.put("Egypt", Egypt);
-        allLists.put("ElSalvador", ElSalvador);
-        allLists.put("England", England);
+        allLists.put("ElSalvador", ElSalvador);        
         allLists.put("EquatorialGuinea", EquatorialGuinea);
         allLists.put("Eritrea", Eritrea);
         allLists.put("Estonia", Estonia);
