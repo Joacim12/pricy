@@ -1,0 +1,6 @@
+data\GlsPrices.class
+model\priceCalc.class
+model\Control.class
+rest\PriceResource.class
+entity\PriceOBJ.class
+rest\ApplicationConfig.class
