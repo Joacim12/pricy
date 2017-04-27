@@ -12,14 +12,6 @@ import javax.persistence.Id;
 @Entity
 public class Country implements Serializable {
 
-    public List<double[]> getPrices() {
-        return prices;
-    }
-
-    public void setPrices(List<double[]> prices) {
-        this.prices = prices;
-    }
-
     private static final long serialVersionUID = 1L;
     @Id
     private String name;
@@ -39,6 +31,14 @@ public class Country implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+    
+     public List<double[]> getPrices() {
+        return prices;
+    }
+
+    public void setPrices(List<double[]> prices) {
+        this.prices = prices;
     }
 
     @Override

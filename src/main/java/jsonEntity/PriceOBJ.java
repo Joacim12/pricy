@@ -13,7 +13,7 @@ public class PriceOBJ {
     private Double upsE;
     private Double upsSt;
     private Double glsS;
-    private String carrier;
+    private String cheapest;
 
     public PriceOBJ(Double weight, Double fedexE, Double fedexP, Double upsSA, Double upsE, Double upsSt, Double glsS, String carrier) {
         this.weight = weight;
@@ -23,6 +23,6 @@ public class PriceOBJ {
         this.upsE = upsE;
         this.upsSt = upsSt;
         this.glsS = glsS;
-        this.carrier = carrier;
+        this.cheapest = carrier;
     }
 }
