@@ -3,6 +3,7 @@ package model;
 import data.GlsPrices;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 /**
  *
  * @author jvetterlain
@@ -367,7 +368,7 @@ public final class Control {
     public ArrayList<double[]> Zambia = new ArrayList();
     public ArrayList<double[]> Zimbabwe = new ArrayList();
 
-    public HashMap<String, ArrayList> allLists = new HashMap();
+    public Map<String, ArrayList> allLists = new HashMap();
 
     public void addEverything() {
         //Tilføj prislister til land
