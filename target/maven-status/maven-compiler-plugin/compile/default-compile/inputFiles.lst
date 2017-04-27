@@ -1,6 +1,9 @@
-C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\webto\src\main\java\data\GlsPrices.java
-C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\webto\src\main\java\rest\ApplicationConfig.java
-C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\webto\src\main\java\rest\PriceResource.java
-C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\webto\src\main\java\entity\PriceOBJ.java
-C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\webto\src\main\java\model\Control.java
-C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\webto\src\main\java\model\priceCalc.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\entity\Price.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\entity\Country.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\data\GlsPrices.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\rest\ApplicationConfig.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\rest\PriceResource.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\model\Control.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\model\priceCalc.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\jsonEntity\PriceOBJ.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\facades\PriceGetter.java

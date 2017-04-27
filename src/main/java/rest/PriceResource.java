@@ -11,7 +11,7 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import model.priceCalc;
+import model.CalculatePrice;
 
 /**
  * REST Web Service
@@ -43,7 +43,7 @@ public class PriceResource {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getJson(@PathParam("kg") String kg,@PathParam("country") String country) {
         return Response.ok()
-                .entity(gson.toJson(new priceCalc().getPrice(country, kg)))
+                .entity(gson.toJson(new CalculatePrice().getPrice(country, kg)))
                 .header("Access-Control-Allow-Origin", "*")
                 .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
                 .allow("OPTIONS").build();       
