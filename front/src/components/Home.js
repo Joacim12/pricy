@@ -13,13 +13,12 @@ class Home extends Component {
     showResult = false;
 
     searchData(kg, country) {
-        fetch('https://vetterlain.dk/webto/api/price/' + kg + '/' + country + '')
+        fetch('http://localhost:8084/webto/api/price/' + kg + '/' + country + '')
             .then(res => res.json())
             .then(price => {
                 this.setState({price}, console.log())
             })
     }
-
 
 
     calculateVolWeight() {
@@ -38,10 +37,10 @@ class Home extends Component {
     }
 
     handleSearch() {
-        if (this.state.countries.length > 3) {
-        // Rounds kg up to nearest half + replaces ',' with '.'
-        this.searchData((Math.round((this.state.kg + "").replace(",", ".") * 2) / 2), this.state.countries);
-        this.showResult = true;
+        if (this.state.country.length > 3) {
+            // Rounds kg up to nearest half + replaces ',' with '.'
+            this.searchData((Math.round((this.state.kg + "").replace(",", ".") * 2) / 2), this.state.country);
+            this.showResult = true;
         }
     }
 
@@ -50,7 +49,8 @@ class Home extends Component {
     }
 
     handleChangeCountry(e) {
-        this.setState({[e.target.name]: e.target.value}, this.handleSearch);
+
+        this.setState({[e.target.name]: e.target.value}, () => this.handleSearch());
     }
 
     render() {

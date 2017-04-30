@@ -5,13 +5,11 @@ class Edit extends Component {
     state = {
         state: {
             countries: [],
-            value: "test"
         },
         country: {
             name: "",
             prices: {}
         },
-        a0: ""
     }
 
     getCountries() {
@@ -26,8 +24,7 @@ class Edit extends Component {
         fetch('https://vetterlain.dk/webto/api/price/' + country)
             .then(res => res.json())
             .then(country => {
-                this.setState({country},()=>{
-                    document.getElementById("name").value = this.state.country.name;
+                this.setState({country}, () => {
                     document.getElementById("0").value = this.state.country.prices[0];
                     document.getElementById("1").value = this.state.country.prices[1];
                     document.getElementById("2").value = this.state.country.prices[2];
@@ -39,20 +36,32 @@ class Edit extends Component {
 
     }
 
-    save(){
+    save() {
+        let country = {
+            name: this.state.country.name,
+            prices: [
+                [document.getElementById("0").value],
+                [document.getElementById("1").value],
+                [document.getElementById("2").value],
+                [document.getElementById("3").value],
+                [document.getElementById("4").value],
+                [document.getElementById("5").value],
+            ]
+        }
 
 
-
+        let data = JSON.stringify(country);
         fetch("http://localhost:8084/webto/api/price",
             {
                 method: "PUT",
-                body: {name:"hej"}
+                headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+                body: data
             })
     }
 
+
     componentDidMount() {
         this.getCountries();
-
     }
 
     fillSelect() {
@@ -65,38 +74,35 @@ class Edit extends Component {
 
 
     handleChange(event) {
-        this.setState({value: event.target.value}, () => {
+        this.setState({[event.target.name]: event.target.value}, () => {
             this.getCountry(this.state.value);
         });
 
     }
 
-
-
     render() {
         return (
             <div className="container well">
 
-                <select value={this.state.value} onChange={this.handleChange.bind(this)}>
-                    {this.state.countries ? this.fillSelect() : ""}
+                <select name="value" onChange={this.handleChange.bind(this)}>
+                    {this.state.countries ? this.fillSelect() : "Loading"}
                 </select>
                 <div className="input-group">
-                    <h5>Name:</h5>
-                    <input className="form-control"type="text" id="name"></input>
+                    <h3>Country: {this.state.country.name}</h3>
                     <h5>Fedex Economy:</h5>
-                    <input className="form-control"type="text" id="0"></input>
+                    <input className="form-control"  type="text" id="0"></input>
                     <h5>Fedex Priority:</h5>
-                    <input className="form-control"type="text" id="1"></input>
+                    <input className="form-control" type="text" id="1"></input>
                     <h5>Ups Saver:</h5>
-                    <input className="form-control"type="text" id="2"></input>
+                    <input className="form-control" type="text" id="2"></input>
                     <h5>Ups Express:</h5>
-                    <input className="form-control"type="text" id="3"></input>
+                    <input className="form-control" type="text" id="3"></input>
                     <h5>Ups Standard:</h5>
-                    <input className="form-control"type="text" id="4"></input>
+                    <input className="form-control" type="text" id="4"></input>
                     <h5>Gls:</h5>
-                    <input className="form-control"type="text" id="5"></input>
+                    <input className="form-control" type="text" id="5"></input>
                 </div>
-                <button onClick={this.save}>Save</button>
+                <button onClick={this.save.bind(this)}>Save</button>
             </div>
         );
     }

@@ -2,6 +2,7 @@ package rest;
 
 import com.google.gson.Gson;
 import control.Control;
+import entity.Country;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -12,7 +13,6 @@ import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
 
 /**
  * REST Web Service
@@ -21,10 +21,10 @@ import javax.ws.rs.core.Response;
  */
 @Path("price")
 public class PriceResource {
-    
+
     Gson gson = new Gson();
     Control control = new Control();
-    
+
     @Context
     private UriInfo context;
 
@@ -36,6 +36,7 @@ public class PriceResource {
 
     /**
      * Retrieves representation of an instance of rest.PriceResource
+     *
      * @param kg
      * @param country
      * @return an instance of java.lang.String
@@ -43,47 +44,38 @@ public class PriceResource {
     @GET
     @Path("{kg}/{country}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getJson(@PathParam("kg") String kg,@PathParam("country") String country) {
-        return Response.ok()
-                .entity(gson.toJson(control.getPrice(country, kg)))
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-                .allow("OPTIONS").build();       
+    public String getPriceCountry(@PathParam("kg") String kg, @PathParam("country") String country) {
+        return gson.toJson(control.getPrice(country, kg));
     }
-    
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getAllCountries() {
-        return Response.ok()
-                .entity(gson.toJson(control.getAllCountries()))
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-                .allow("OPTIONS").build();       
+    public String getAllCountries() {
+        return gson.toJson(control.getAllCountries());
     }
-    
-     @GET
-     @Path("{country}")
+
+    @GET
+    @Path("{country}")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response getCountry(@PathParam("country") String country) {
-        return Response.ok()
-                .entity(gson.toJson(control.getCountry(country)))
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT")
-                .allow("OPTIONS").build();       
+    public String getCountry(@PathParam("country") String country) {
+        return gson.toJson(control.getCountry(country));
     }
-    
-    
-    
-    
 
     /**
      * PUT method for updating or creating an instance of PriceResource
+     *
      * @param content representation for the resource
-     * @return 
      */
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     public void putJson(String content) {
-        System.out.println(content);
+        content = content.substring(0, content.lastIndexOf(":")) +content.substring(content.lastIndexOf(":"), content.length()).replace("\"", "");
+        Country c = gson.fromJson(content, Country.class);
+        control.updateCountry(c);
+    }
+    
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void postJson(String content) {
     }
 }

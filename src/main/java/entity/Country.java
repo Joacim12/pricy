@@ -4,12 +4,15 @@ import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 
 /**
  *
  * @author joaci
  */
 @Entity
+@PersistenceContext(type=PersistenceContextType.EXTENDED)
 public class Country implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -50,7 +53,7 @@ public class Country implements Serializable {
     
     @Override
     public String toString() {
-        return "Country{" + "name=" + name + ", prices=" + prices + '}';
+        return "Country{" + "name=" + name + ", prices=" +prices + '}';
     }
 
 }

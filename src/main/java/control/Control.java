@@ -14,6 +14,14 @@ public class Control {
     CalculatePrice cp = new CalculatePrice();
     PriceFacade priceFacade = new PriceFacade("pu");
     
+    public void createCountry(Country c){
+        priceFacade.createCountry(c);
+    }
+    
+    public void updateCountry(Country c){
+        priceFacade.updateCountry(c);
+    }
+    
     
     public PriceOBJ getPrice(String country, String kgString){
         return cp.getPrice(country, kgString);

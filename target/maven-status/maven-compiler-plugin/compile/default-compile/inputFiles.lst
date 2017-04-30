@@ -1,7 +1,9 @@
 C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\entity\Country.java
 C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\model\CalculatePrice.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\cors\CorsResponseFilter.java
 C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\facades\PriceFacade.java
 C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\control\Control.java
 C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\rest\ApplicationConfig.java
 C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\rest\PriceResource.java
+C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\cors\CorsRequestFilter.java
 C:\Users\joaci\OneDrive\Dokumenter\NetBeansProjects\webto\src\main\java\jsonEntity\PriceOBJ.java

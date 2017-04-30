@@ -1,6 +1,7 @@
 package facades;
 
 import entity.Country;
+import java.util.Arrays;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -31,7 +32,7 @@ public class PriceFacade {
 //        updatedList.set(2, test);
 //        c.setPrices(updatedList);
 //        updateCountry(c);
-        System.out.println(getCountry("Denmark").getPrices().get(2)[0]);
+        System.out.println(Arrays.toString(getCountry("Aruba").getPrices().get(5)));
     }
 
     public Country getCountry(String name) {
@@ -56,16 +57,17 @@ public class PriceFacade {
     
     public Country updateCountry(Country country) {
         EntityManager em = getEntityManager();
+        Country c = em.find(Country.class, country.getName());
         try {
             em.getTransaction().begin();
-            em.merge(country);
+            c.setPrices(country.getPrices());
             em.getTransaction().commit();
         } catch (RollbackException r) {
             em.getTransaction().rollback();
         } finally {
             em.close();
         }
-        return country;
+        return c;
     }
     
     private EntityManager getEntityManager() {

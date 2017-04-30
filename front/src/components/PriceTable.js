@@ -25,7 +25,7 @@ class Table extends Component {
                         <td>{this.props.price.upsE}</td>
                         <td>{this.props.price.upsSA}</td>
                         <td>{this.props.price.upsSt}</td>
-                        <td>{this.props.price.carrier}</td>
+                        <td>{this.props.price.cheapest}</td>
                     </tr>
                     </tbody>
                 </table>

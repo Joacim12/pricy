@@ -1,3 +1,5 @@
+cors\CorsRequestFilter.class
+cors\CorsResponseFilter.class
 control\Control.class
 jsonEntity\PriceOBJ.class
 facades\PriceFacade.class
