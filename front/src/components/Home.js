@@ -13,7 +13,7 @@ class Home extends Component {
     showResult = false;
 
     searchData(kg, country) {
-        fetch('https://vetterlain.dk/webtwo/api/price/' + kg + '/' + country + '')
+        fetch('https://vetterlain.dk/webto/api/price/' + kg + '/' + country + '')
             .then(res => res.json())
             .then(price => {
                 this.setState({price}, console.log())
@@ -38,9 +38,9 @@ class Home extends Component {
     }
 
     handleSearch() {
-        if (this.state.country.length > 3) {
+        if (this.state.countries.length > 3) {
         // Rounds kg up to nearest half + replaces ',' with '.'
-        this.searchData((Math.round((this.state.kg + "").replace(",", ".") * 2) / 2), this.state.country);
+        this.searchData((Math.round((this.state.kg + "").replace(",", ".") * 2) / 2), this.state.countries);
         this.showResult = true;
         }
     }

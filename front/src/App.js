@@ -5,10 +5,8 @@ import './App.css';
 
 import Home from './components/Home'
 import Navbar from "./components/Navbar";
+import Edit from './components/Edit'
 
-const Test = (props) => (
-    <div className="container"><well><h1>empty</h1></well></div>
-)
 
 class App extends Component {
 
@@ -19,7 +17,7 @@ class App extends Component {
                     <div >
                         <Navbar/>
                         <Route exact path="/webto/" render={props => <Home/>}/>
-                        <Route path="/webto/test/" component={Test}/>
+                        <Route path="/webto/test/" component={Edit}/>
                     </div>
                 </Router>
             </div>

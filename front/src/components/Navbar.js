@@ -10,7 +10,7 @@ class Navbar extends Component {
 
                     <div className="navbar-header">
                         <NavLink exact activeClassName="isActive" to="/webto/">
-                            <a className="navbar-brand">Intelli Cargo<img src={logo} className="App-logo" alt="logo"/></a>
+                            <span className="navbar-brand">Intelli Cargo<img src={logo} className="App-logo" alt="logo"/></span>
                         </NavLink>
                         <ul className="nav navbar-nav">
                             <li><NavLink exact activeClassName="isActive" to="/webto/">Search</NavLink></li>

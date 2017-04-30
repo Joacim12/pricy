@@ -1,10 +1,8 @@
-facades\PriceGetter.class
+control\Control.class
 jsonEntity\PriceOBJ.class
+facades\PriceFacade.class
+model\CalculatePrice.class
 rest\ApplicationConfig.class
-entity\Price.class
 entity\Country_.class
-data\GlsPrices.class
 entity\Country.class
-model\priceCalc.class
-model\Control.class
 rest\PriceResource.class
